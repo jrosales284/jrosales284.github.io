@@ -1,0 +1,2 @@
+Sube aquí tu CV en PDF con el nombre exacto: Johanna-Rosales-CV.pdf
+Mientras no exista, los botones "Descargar CV" se ocultan solos.
