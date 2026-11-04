@@ -1,56 +1,414 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es" data-lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio – Johanna Rosales</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Johanna Rosales — Senior UX/UI Designer · Data &amp; Front-end</title>
+<meta name="description" content="Portafolio de Johanna Rosales, diseñadora UX/UI senior: investigación, Figma, Power BI y desarrollo front-end. Casos reales desde el prototipo hasta producción.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://jrosales284.github.io/">
+<meta name="theme-color" content="#2f5bff">
+<meta name="author" content="Johanna Rosales">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Johanna Rosales — Portafolio">
+<meta property="og:title" content="Johanna Rosales — Senior UX/UI Designer">
+<meta property="og:description" content="Diseño productos digitales claros, medibles y listos para producción. UX/UI, Power BI y front-end.">
+<meta property="og:url" content="https://jrosales284.github.io/">
+<meta property="og:image" content="https://jrosales284.github.io/img/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/main.js"></script>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="#about">Acerca de mí</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#contacto">Contáctame</a></li>
+<a class="skip" href="#main"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Inicio">{<b>JR</b>}&nbsp;rosales</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"><span lang="es">Sobre mí</span><span lang="en">About</span></a></li>
+      <li><a href="#projects"><span lang="es">Casos</span><span lang="en">Work</span></a></li>
+      <li><a href="#websites"><span lang="es">Sitios web</span><span lang="en">Websites</span></a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#experience"><span lang="es">Experiencia</span><span lang="en">Experience</span></a></li>
+      <li><a href="#education"><span lang="es">Formación</span><span lang="en">Education</span></a></li>
+      <li><a href="#contact"><span lang="es">Contacto</span><span lang="en">Contact</span></a></li>
     </ul>
+    <div class="nav-tools">
+      <button class="chip-btn" id="langBtn" type="button" aria-label="Cambiar idioma">EN</button>
+      <button class="chip-btn" id="themeBtn" type="button" aria-label="Cambiar tema"></button>
+      <button class="chip-btn menu-btn" id="menuBtn" type="button" aria-label="Menú" aria-controls="navLinks"></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="status"><span class="pulse" aria-hidden="true"></span><span lang="es">Disponible · remoto o híbrido</span><span lang="en">Available · remote or hybrid</span></span>
+      <p class="eyebrow">Senior UX/UI Designer · Data &amp; Front-end</p>
+      <h1>
+        <span class="name">Johanna Rosales</span>
+        <span class="hl" lang="es">Diseño productos digitales claros, medibles y listos para producción.</span>
+        <span class="hl" lang="en">I design clear, measurable digital products, ready for production.</span>
+      </h1>
+      <p class="lead" lang="es">Diseñadora UX/UI con 9 años de experiencia en investigación, prototipado y testeo de productos digitales. Mi perfil técnico en datos y desarrollo me permite llevar cada proyecto desde la entrevista con el usuario hasta el dashboard en Power BI o la app en producción.</p>
+      <p class="lead" lang="en">UX/UI designer with 9 years of experience in research, prototyping and testing digital products. My technical background in data and development lets me take every project from the first user interview to the Power BI dashboard or the app in production.</p>
+      <div class="loc">
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Santiago, Chile</span>
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg> <span lang="es">Español · Inglés C1</span><span lang="en">Spanish · English C1</span></span>
+      </div>
+      <div class="btns">
+        <a class="btn btn-primary" href="#projects"><span lang="es">Ver casos de estudio</span><span lang="en">View case studies</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="btn btn-ghost" href="cv/Johanna-Rosales-CV.pdf" target="_blank" rel="noopener"><svg class="i i-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg> <span lang="es">Descargar CV</span><span lang="en">Download CV</span></a>
+      </div>
+    </div>
+    <div class="avatar"><img src="img/foto.jpg" alt="Johanna Rosales" width="320" height="320"></div>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>9</b><span lang="es">años en diseño UX/UI</span><span lang="en">years in UX/UI design</span></div>
+      <div class="stat"><b>6+</b><span lang="es">años en datos y desarrollo</span><span lang="en">years in data &amp; development</span></div>
+      <div class="stat"><b>3</b><span lang="es">países coordinados: Chile, India y Australia</span><span lang="en">countries coordinated: Chile, India and Australia</span></div>
+      <div class="stat"><b>PL-300</b><span>Microsoft Power BI Data Analyst</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" style="padding-top:32px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span class="num">01</span><span lang="es">Sobre mí</span><span lang="en">About me</span></p>
+      <h2 class="sec-title"><span lang="es">Un perfil híbrido: UX, datos y código</span><span lang="en">A hybrid profile: UX, data and code</span></h2>
+      <p class="sec-sub" lang="es">Diseño con evidencia: entrevisto, prototipo, mido y ajusto hasta que el producto funciona para las personas y para el negocio.</p>
+      <p class="sec-sub" lang="en">I design with evidence: I interview, prototype, measure and iterate until the product works for people and for the business.</p>
+    </div>
+    <div class="cols-3 reveal">
+      <div class="panel"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span><h4>UX/UI</h4>
+        <p lang="es">Investigación con usuarios, prototipos en Figma, testeo de flujos y rediseño iterativo hasta la conformidad del cliente.</p>
+        <p lang="en">User research, Figma prototypes, flow testing and iterative redesign until client sign-off.</p></div>
+      <div class="panel"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h4><span lang="es">Datos y reportería</span><span lang="en">Data &amp; reporting</span></h4>
+        <p lang="es">Ciclo completo del dato: extracción en SQL Server, limpieza en Power Query, modelado DAX y dashboards que responden preguntas de negocio.</p>
+        <p lang="en">Full data lifecycle: SQL Server extraction, Power Query cleaning, DAX modeling and dashboards that answer business questions.</p></div>
+      <div class="panel"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span><h4><span lang="es">Desarrollo y automatización</span><span lang="en">Development &amp; automation</span></h4>
+        <p lang="es">Interfaces en React, sitios WordPress desde cero y flujos en Power Automate e IA generativa que eliminan trabajo manual.</p>
+        <p lang="en">React interfaces, WordPress sites built from scratch, and Power Automate + generative AI flows that remove manual work.</p></div>
+    </div>
+    <div class="eco reveal">
+      <div class="panel">
+        <h4><span class="ms-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span lang="es">Ecosistema Microsoft de punta a punta</span><span lang="en">End-to-end Microsoft ecosystem</span></h4>
+        <p lang="es">Diseño, desarrollo y automatizo dentro de Microsoft 365 y Power Platform.</p>
+        <p lang="en">I design, build and automate across Microsoft 365 and Power Platform.</p>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">Microsoft Fabric · Direct Lake</span><span class="tag">SQL Server</span><span class="tag">Teams</span><span class="tag">Excel</span><span class="tag">Entra ID</span><span class="tag">Purview</span></div>
+      </div>
+      <div class="panel">
+        <h4><span lang="es">IA generativa aplicada al trabajo</span><span lang="en">Generative AI applied to work</span></h4>
+        <div class="ai-badges">
+          <div class="ai-badge"><span class="ai-ic ai-copilot" aria-hidden="true">✦</span><div><b>Microsoft Copilot</b><small lang="es">DAX, narrativas y reportes en Power BI</small><small lang="en">DAX, narratives and reports in Power BI</small></div></div>
+          <div class="ai-badge"><span class="ai-ic ai-claude" aria-hidden="true">✳</span><div><b>Anthropic Claude</b><small lang="es">Automatización, agentes y API · certificada</small><small lang="en">Automation, agents and API · certified</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span class="num">02</span><span lang="es">Casos de estudio</span><span lang="en">Case studies</span></p>
+      <h2 class="sec-title"><span lang="es">Trabajo seleccionado</span><span lang="en">Selected work</span></h2>
+      <p class="sec-sub" lang="es">Cada caso muestra el problema, el proceso y el resultado, con pantallas, código y las herramientas que usé.</p>
+      <p class="sec-sub" lang="en">Each case shows the problem, the process and the outcome, with screens, code and the tools I used.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrar casos">
+      <button class="filter active" type="button" data-f="all"><span lang="es">Todos</span><span lang="en">All</span></button>
+      <button class="filter" type="button" data-f="ux">UX/UI</button>
+      <button class="filter" type="button" data-f="bi">Power BI</button>
+      <button class="filter" type="button" data-f="auto"><span lang="es">Automatización</span><span lang="en">Automation</span></button>
+      <button class="filter" type="button" data-f="dev"><span lang="es">Desarrollo</span><span lang="en">Development</span></button>
+    </div>
+    <div class="grid">
+
+      <article class="card reveal" data-cat="bi auto">
+        <div class="thumb" style="background:#f7f8fb url(img/sodexo-dashboard.jpg) left top/cover"><span class="cat">Power BI · DAX · Direct Lake</span></div>
+        <div class="card-body">
+          <span class="idx">01 <span class="badge-star"><span lang="es">Proyecto más reciente</span><span lang="en">Latest project</span></span></span>
+          <h3>Sodexo Chile — <span lang="es">People Analytics de rotación</span><span lang="en">Staff turnover People Analytics</span></h3>
+          <span class="org"><span lang="es">Analista BI · Sep – Oct 2026</span><span lang="en">BI Analyst · Sep – Oct 2026</span></span>
+          <p lang="es">Investigación en DAX y limpieza de la base en Direct Lake, con integración desde SQL Server vía Power Automate y dashboards en Power BI para entender cuánta gente se va y por qué.</p>
+          <p lang="en">DAX research and database cleaning in Direct Lake, with SQL Server integration through Power Automate and Power BI dashboards to understand how many people leave and why.</p>
+          <ul>
+            <li lang="es">Medidas DAX de rotación voluntaria, involuntaria y acumulada</li><li lang="en">DAX measures for voluntary, involuntary and cumulative turnover</li>
+            <li lang="es">Flujo SQL Server → Power Automate → Teams / Office 365</li><li lang="en">SQL Server → Power Automate → Teams / Office 365 flow</li>
+            <li lang="es">Filtros por segmento y región, exportable a Excel y PDF</li><li lang="en">Segment and region filters, exportable to Excel and PDF</li>
+          </ul>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Direct Lake</span><span class="tag">Power Automate</span><span class="tag">SQL Server</span></div>
+          <div class="more"><a class="cta-link" href="casos/sodexo.html"><span lang="es">Ver caso completo</span><span lang="en">View full case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="ux dev">
+        <div class="thumb" style="background:#f1f5f9 url(img/bhp-dashboard.jpg) left top/cover"><span class="cat">UX/UI · Design System · Testing</span></div>
+        <div class="card-body">
+          <span class="idx">02</span>
+          <h3>BHP EMAS — <span lang="es">Gestión ambiental Escondida &amp; Spence</span><span lang="en">Environmental management, Escondida &amp; Spence</span></h3>
+          <span class="org">BHP · Minerals Americas</span>
+          <p lang="es">Investigación operacional, sistema de tokens con contraste WCAG AA, accesos por región (Chile y Australia con Entra ID y MFA), dashboards de cumplimiento y balance hídrico, y testing antes de cada entrega.</p>
+          <p lang="en">Operational research, a WCAG AA token system, region-based sign-in (Chile and Australia with Entra ID and MFA), compliance and water-balance dashboards, and testing before every handoff.</p>
+          <div class="tags"><span class="tag">Figma</span><span class="tag">Design tokens</span><span class="tag">WCAG AA</span><span class="tag">HTML/CSS</span><span class="tag">Node.js</span></div>
+          <div class="more"><a class="cta-link" href="casos/bhp.html"><span lang="es">Ver caso completo</span><span lang="en">View full case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="ux dev">
+        <div class="thumb" style="background:#f4f4f4 url(img/chilexpress-wireframes.jpg) left center/cover"><span class="cat">UX · React Native · Firebase</span></div>
+        <div class="card-body">
+          <span class="idx">03</span>
+          <h3>Chilexpress — <span lang="es">Rediseño del login de la app</span><span lang="en">App login redesign</span></h3>
+          <span class="org"><span lang="es">Investigación UX · Desarrollo · QA</span><span lang="en">UX research · Development · QA</span></span>
+          <p lang="es">De wireframes en blanco y negro a la alta fidelidad con la marca, guiado por entrevistas a clientes. Desarrollado en React Native con backend Node.js y probado en dispositivos reales con Firebase Test Lab.</p>
+          <p lang="en">From black-and-white wireframes to branded high fidelity, guided by customer interviews. Built in React Native with a Node.js backend and tested on real devices with Firebase Test Lab.</p>
+          <div class="tags"><span class="tag">Figma</span><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Firebase Test Lab</span></div>
+          <div class="more"><a class="cta-link" href="casos/chilexpress.html"><span lang="es">Ver caso completo</span><span lang="en">View full case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="ux dev">
+        <div class="thumb" style="background:#080c12 url(img/simef-app.jpg) center/cover"><span class="cat">React · TypeScript · GIS</span></div>
+        <div class="card-body">
+          <span class="idx">04</span>
+          <h3>SIMEF Móvil — <span lang="es">Monitoreo de bosque nativo</span><span lang="en">Native forest monitoring</span></h3>
+          <span class="org">CIREN · CONAF · INFOR · 2024</span>
+          <p lang="es">De un prototipo validado en terreno con brigadistas y guardaparques a una app en React + TypeScript + Vite, con mapas satelitales, modo offline (PWA) y acceso con ClaveÚnica.</p>
+          <p lang="en">From a prototype validated in the field with rangers to a React + TypeScript + Vite app with satellite maps, offline mode (PWA) and ClaveÚnica sign-in.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">MapLibre</span><span class="tag">PWA</span><span class="tag">Zustand</span><span class="tag">Tailwind</span></div>
+          <div class="more"><a class="cta-link" href="casos/simef.html"><span lang="es">Ver caso completo</span><span lang="en">View full case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="dev ux">
+        <div class="thumb" style="background:#f1f3f7 url(img/energuias-cotizador.jpg) left top/cover"><span class="cat">Web app · UX · <span lang="es">Comercio exterior</span><span lang="en">Foreign trade</span></span></div>
+        <div class="card-body">
+          <span class="idx">05</span>
+          <h3>Energuias Chile — <span lang="es">Cotizador Maestro de flete EXW</span><span lang="en">Master EXW freight quoter</span></h3>
+          <span class="org"><span lang="es">Plataforma interna del área de ventas</span><span lang="en">Internal sales platform</span></span>
+          <p lang="es">Cotiza en segundos un flete EXW desde el proveedor hasta Chile: compara marítimo FCL, LCL y aéreo con costo, precio de venta sugerido y fechas de llegada, y exporta la cotización en PDF.</p>
+          <p lang="en">Quotes an EXW freight from the supplier to Chile in seconds: compares sea FCL, LCL and air with cost, suggested sale price and arrival dates, and exports the quote as a PDF.</p>
+          <div class="tags"><span class="tag">UX/UI</span><span class="tag"><span lang="es">Desarrollo web</span><span lang="en">Web development</span></span><span class="tag">COMEX</span><span class="tag">PDF</span></div>
+          <div class="more"><a class="cta-link" href="casos/energuias.html#cotizador"><span lang="es">Ver caso completo</span><span lang="en">View full case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="bi ux dev">
+        <div class="thumb" style="background:#f1f3f7 url(img/energuias-powerbi.jpg) center/cover"><span class="cat">Power BI · DAX · SharePoint</span></div>
+        <div class="card-body">
+          <span class="idx">06</span>
+          <h3>Energuias Chile — <span lang="es">Reportería en Power BI</span><span lang="en">Power BI reporting</span></h3>
+          <span class="org"><span lang="es">Cuadro de mando · Intranet · App interna</span><span lang="en">Scorecard · Intranet · Internal app</span></span>
+          <p lang="es">Cuadro de Mando Integral en Power BI para la gerencia (Chile, Perú y LATAM: ventas, costos, OPEX y EBITDA vs meta), apoyado por una intranet en SharePoint y una app móvil interna en React Native / Expo.</p>
+          <p lang="en">A Power BI balanced scorecard for management (Chile, Peru and LATAM: sales, costs, OPEX and EBITDA vs target), backed by a SharePoint intranet and an internal React Native / Expo mobile app.</p>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">SharePoint</span><span class="tag">React Native</span></div>
+          <div class="more"><a class="cta-link" href="casos/energuias.html"><span lang="es">Ver caso completo</span><span lang="en">View full case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WEBSITES ============ -->
+<section id="websites">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span class="num">03</span><span lang="es">Desarrollo web</span><span lang="en">Web development</span></p>
+      <h2 class="sec-title"><span lang="es">Sitios web publicados</span><span lang="en">Live websites</span></h2>
+      <p class="sec-sub" lang="es">Sitios en producción para marcas y empresas chilenas, construidos en WordPress y Shopify.</p>
+      <p class="sec-sub" lang="en">Production sites for Chilean brands and companies, built on WordPress and Shopify.</p>
+    </div>
+    <div class="sites reveal">
+      <a class="site" href="https://notco.com/" target="_blank" rel="noopener">
+        <div class="site-thumb" style="background:linear-gradient(135deg,#111,#3a3a3a)">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="addr">notco.com</span></div>
+          <b class="site-name">NotCo</b>
+        </div>
+        <div class="site-body">
+          <span class="site-plat"><span lang="es">Sitio corporativo</span><span lang="en">Corporate site</span></span>
+          <p lang="es">Food-tech chilena de alternativas plant-based: productos, recetas y dónde comprar.</p><p lang="en">Chilean food-tech for plant-based alternatives: products, recipes and where to buy.</p>
+          <span class="cta-link"><span lang="es">Visitar sitio</span><span lang="en">Visit site</span> <svg class="i i-ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+      </a>
+      <a class="site" href="https://universoviajes.cl/" target="_blank" rel="noopener">
+        <div class="site-thumb" style="background:linear-gradient(135deg,#0077b6,#00b4d8)">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="addr">universoviajes.cl</span></div>
+          <b class="site-name">Universo Viajes</b>
+        </div>
+        <div class="site-body">
+          <span class="site-plat">WordPress</span>
+          <p lang="es">Agencia de viajes de Viña del Mar: tours por Chile y Sudamérica, giras de estudio y traslados.</p><p lang="en">Viña del Mar travel agency: tours across Chile and South America, study trips and transfers.</p>
+          <span class="cta-link"><span lang="es">Visitar sitio</span><span lang="en">Visit site</span> <svg class="i i-ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+      </a>
+      <a class="site" href="https://cuidadovital.cl/" target="_blank" rel="noopener">
+        <div class="site-thumb" style="background:linear-gradient(135deg,#2a9d8f,#8ecae6)">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="addr">cuidadovital.cl</span></div>
+          <b class="site-name">Cuidado Vital</b>
+        </div>
+        <div class="site-body">
+          <span class="site-plat">WordPress</span>
+          <p lang="es">Cuidado domiciliario 24/7 para adultos mayores y pacientes en la Región Metropolitana.</p><p lang="en">24/7 home care for older adults and patients in the Santiago metro area.</p>
+          <span class="cta-link"><span lang="es">Visitar sitio</span><span lang="en">Visit site</span> <svg class="i i-ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+      </a>
+      <a class="site" href="https://www.noajoyas.cl/" target="_blank" rel="noopener">
+        <div class="site-thumb" style="background:linear-gradient(135deg,#b08968,#e6ccb2)">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="addr">noajoyas.cl</span></div>
+          <b class="site-name">Noa Joyas</b>
+        </div>
+        <div class="site-body">
+          <span class="site-plat">Shopify</span>
+          <p lang="es">Tienda online de joyas en plata 925 y baño de oro, con piezas personalizables.</p><p lang="en">Online store for 925 silver and gold-plated jewelry, with personalized pieces.</p>
+          <span class="cta-link"><span lang="es">Visitar sitio</span><span lang="en">Visit site</span> <svg class="i i-ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+      </a>
+      <a class="site" href="https://www.xfirechile.cl/" target="_blank" rel="noopener">
+        <div class="site-thumb" style="background:linear-gradient(135deg,#d62828,#f77f00)">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="addr">xfirechile.cl</span></div>
+          <b class="site-name">X Fire Chile</b>
+        </div>
+        <div class="site-body">
+          <span class="site-plat">Shopify</span>
+          <p lang="es">E-commerce de lentes de sol y ópticos con despacho a todo Chile y tienda en Providencia.</p><p lang="en">Sunglasses and optical e-commerce with nationwide shipping and a store in Providencia.</p>
+          <span class="cta-link"><span lang="es">Visitar sitio</span><span lang="en">Visit site</span> <svg class="i i-ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section id="stack" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span class="num">04</span>Tech stack</p>
+      <h2 class="sec-title"><span lang="es">Herramientas con las que trabajo</span><span lang="en">Tools I work with</span></h2>
+      <p class="sec-sub" lang="es">Agrupadas por la etapa del proyecto donde las uso.</p>
+      <p class="sec-sub" lang="en">Grouped by the project stage where I use them.</p>
+    </div>
+    <div class="stack-groups reveal">
+      <div class="stack-card"><h4><span class="dot" style="background:#7b5cff"></span>UX / UI</h4>
+        <div class="tags"><span class="tag">Figma</span><span class="tag">Miro</span><span class="tag">Wireframing</span><span class="tag">Design Thinking</span><span class="tag">User Persona</span><span class="tag">Prototyping</span><span class="tag">Usability testing</span></div></div>
+      <div class="stack-card"><h4><span class="dot" style="background:#f2c811"></span>BI &amp; Reporting</h4>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Copilot</span><span class="tag">Looker Studio</span><span class="tag">Tableau</span><span class="tag"><span lang="es">Excel avanzado</span><span lang="en">Advanced Excel</span></span></div></div>
+      <div class="stack-card"><h4><span class="dot" style="background:#12a37a"></span><span lang="es">Datos</span><span lang="en">Data</span></h4>
+        <div class="tags"><span class="tag">SQL Server / T-SQL</span><span class="tag">BigQuery</span><span class="tag">Python · pandas</span><span class="tag">SAP / Business One</span><span class="tag">Microsoft Purview</span><span class="tag">Ley 19.628</span></div></div>
+      <div class="stack-card"><h4><span class="dot" style="background:#2f5bff"></span><span lang="es">Automatización</span><span lang="en">Automation</span></h4>
+        <div class="tags"><span class="tag">Power Automate</span><span class="tag">Google Apps Script</span><span class="tag">Google APIs</span><span class="tag">Claude API</span><span class="tag">SharePoint</span></div></div>
+      <div class="stack-card"><h4><span class="dot" style="background:#17c3d6"></span><span lang="es">Desarrollo</span><span lang="en">Development</span></h4>
+        <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">React Native · Expo</span><span class="tag">JavaScript</span><span class="tag">HTML / CSS</span><span class="tag">REST APIs</span><span class="tag">WordPress</span><span class="tag">Flatsome</span><span class="tag">cPanel</span></div></div>
+      <div class="stack-card"><h4><span class="dot" style="background:#ff6b6b"></span><span lang="es">Gestión</span><span lang="en">Delivery</span></h4>
+        <div class="tags"><span class="tag">Scrum</span><span class="tag">Jira</span><span class="tag">Backlog</span><span class="tag">QA / UAT</span><span class="tag">Firebase Test Lab</span><span class="tag"><span lang="es">Inglés C1</span><span lang="en">English C1</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span class="num">05</span><span lang="es">Trayectoria</span><span lang="en">Career</span></p>
+      <h2 class="sec-title"><span lang="es">Experiencia</span><span lang="en">Experience</span></h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-head"><h3><span lang="es">Analista BI · People Analytics</span><span lang="en">BI Analyst · People Analytics</span></h3><span class="tl-date"><span lang="es">sep – oct 2026</span><span lang="en">Sep – Oct 2026</span></span></div>
+        <div class="tl-org">Sodexo Chile</div>
+        <ul lang="es"><li>Investigación en DAX y limpieza de la base de datos en Direct Lake para métricas de rotación de personal.</li><li>Integración SQL Server → Power Automate y dashboards profesionales en Power BI.</li></ul>
+        <ul lang="en"><li>DAX research and database cleaning in Direct Lake for staff turnover metrics.</li><li>SQL Server → Power Automate integration and professional Power BI dashboards.</li></ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><h3><span lang="es">Analista de Datos y Comunicaciones · Data Lead</span><span lang="en">Data &amp; Communications Analyst · Data Lead</span></h3><span class="tl-date"><span lang="es">ene 2023 – ago 2026</span><span lang="en">Jan 2023 – Aug 2026</span></span></div>
+        <div class="tl-org">BHP · Minera Los Pelambres</div>
+        <ul lang="es"><li>Mesas técnicas con equipos de India, Australia y Chile: estándares de datos, arquitectura y alcance, en inglés y español.</li><li>Backlog en Jira y sprints; dashboards en Power BI y Looker Studio con Copilot para DAX y narrativas.</li><li>ETL con SQL Server; privacidad y control de acceso.</li></ul>
+        <ul lang="en"><li>Technical working groups with teams in India, Australia and Chile: data standards, architecture and scope, in English and Spanish.</li><li>Jira backlog and sprints; Power BI and Looker Studio dashboards with Copilot for DAX and narratives.</li><li>SQL Server ETL; privacy and access control.</li></ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><h3><span lang="es">Desarrollo de Software</span><span lang="en">Software Developer</span></h3><span class="tl-date"><span lang="es">mar 2019 – nov 2022</span><span lang="en">Mar 2019 – Nov 2022</span></span></div>
+        <div class="tl-org">CORFO · Proyecto CONAF / Minagri – CIREN</div>
+        <ul lang="es"><li>Interfaz y visualizadores de mapas en React para monitoreo forestal.</li><li>Levantamiento de requerimientos, Jira y sprints; QA, UAT y pruebas piloto en terreno.</li></ul>
+        <ul lang="en"><li>React interface and map viewers for forest monitoring.</li><li>Requirements gathering, Jira and sprints; QA, UAT and field pilots.</li></ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><h3><span lang="es">Analista de Datos y Gobernanza de la Información</span><span lang="en">Data &amp; Information Governance Analyst</span></h3><span class="tl-date"><span lang="es">ene 2018 – ene 2019</span><span lang="en">Jan 2018 – Jan 2019</span></span></div>
+        <div class="tl-org">Ministerio de Desarrollo Social y Familia</div>
+        <ul lang="es"><li>Gobierno del dato bajo Ley 19.628 (anonimización, enmascaramiento).</li><li>Integración de SAP, SQL Server y registros del Estado; modelos DAX y dashboards Power BI.</li></ul>
+        <ul lang="en"><li>Data governance under Law 19.628 (anonymization, masking).</li><li>Integration of SAP, SQL Server and state registries; DAX models and Power BI dashboards.</li></ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head"><h3><span lang="es">Otros proyectos</span><span lang="en">Other engagements</span></h3></div>
+        <div class="tl-org">Chilexpress · Grupo Falabella / Sodimac · Defontana · Energuias Chile</div>
+        <ul lang="es"><li>Chilexpress: Analista de Datos COMEX con dashboards interactivos y rediseño UX del checkout.</li><li>Falabella / Sodimac: líder de landing pages Black Friday y CyberDay, UX web y mobile.</li><li>Defontana: métricas de ventas, cotizaciones y pricing fintech.</li><li>Energuias: SAP, optimización de procesos, reportería COMEX y capacitación en IA.</li></ul>
+        <ul lang="en"><li>Chilexpress: COMEX Data Analyst building interactive dashboards, and checkout UX redesign.</li><li>Falabella / Sodimac: led Black Friday and CyberDay landing pages, web and mobile UX.</li><li>Defontana: fintech sales, quotes and pricing metrics.</li><li>Energuias: SAP, process optimization, COMEX reporting and AI training.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow"><span class="num">06</span><span lang="es">Formación</span><span lang="en">Background</span></p>
+      <h2 class="sec-title"><span lang="es">Estudios y certificaciones</span><span lang="en">Education &amp; certifications</span></h2>
+    </div>
+    <div class="two-col reveal">
+      <div class="list-card">
+        <h3><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></span><span lang="es">Estudios</span><span lang="en">Education</span></h3>
+        <div class="edu"><span class="yr">2024</span><div><b><span lang="es">Diplomado Design Thinking aplicado al User Persona</span><span lang="en">Diploma in Design Thinking applied to User Personas</span></b><span>Pontificia Universidad Católica de Chile</span></div></div>
+        <div class="edu"><span class="yr">2015 – 2018</span><div><b><span lang="es">Diseño Gráfico</span><span lang="en">Graphic Design</span></b><span>Lincoln University · <span lang="es">Nueva Zelanda</span><span lang="en">New Zealand</span></span></div></div>
+        <div class="edu"><span class="yr">2008 – 2013</span><div><b><span lang="es">Ingeniería en Informática</span><span lang="en">Computer Engineering</span></b><span>Universidad Andrés Bello</span></div></div>
+      </div>
+      <div class="list-card">
+        <h3><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span><span lang="es">Certificaciones</span><span lang="en">Certifications</span></h3>
+        <div class="edu"><span class="yr">Microsoft</span><div><b>Power BI Data Analyst (PL-300)</b><span lang="es">Certificación oficial Microsoft</span><span lang="en">Official Microsoft certification</span></div></div>
+        <div class="edu"><span class="yr">Anthropic</span><div><b><span lang="es">IA Generativa de Alto Impacto aplicada a Datos y Procesos</span><span lang="en">High-Impact Generative AI for Data &amp; Processes</span></b><span>Claude Academy</span></div></div>
+        <div class="edu"><span class="yr">Google</span><div><b>Google AI Essentials</b><span>Google · SENCE</span></div></div>
+        <div class="edu"><span class="yr">CIREN · INFOR</span><div><b><span lang="es">Uso de la Plataforma SIMEF</span><span lang="en">SIMEF Platform (native forest monitoring)</span></b><span>2026</span></div></div>
+        <div class="edu"><span class="yr">U. Barcelona</span><div><b><span lang="es">Voluntariado: IA para adultos mayores</span><span lang="en">Volunteer: AI training for older adults</span></b><span>2025</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <h2><span lang="es">¿Conversamos sobre tu próximo producto?</span><span lang="en">Let's talk about your next product</span></h2>
+      <p lang="es">Disponible para un cargo estable, remoto o híbrido, como diseñadora UX/UI, analista de datos / Power BI o desarrolladora front-end.</p>
+      <p lang="en">Available for a permanent remote or hybrid role as a UX/UI designer, data / Power BI analyst or front-end developer.</p>
+      <div class="btns" style="justify-content:center">
+        <a class="btn" href="mailto:johanna.rosalesz@gmail.com"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> <span lang="es">Escríbeme</span><span lang="en">Email me</span></a>
+        <a class="btn btn-ghost" href="cv/Johanna-Rosales-CV.pdf" target="_blank" rel="noopener"><svg class="i i-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg> <span lang="es">Descargar CV</span><span lang="en">Download CV</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer"><div class="wrap">
+  <span>© 2026 Johanna Rosales · Santiago, Chile</span>
+  <nav class="foot-links" aria-label="Pie de página">
+    <a href="index.html#projects"><span lang="es">Casos</span><span lang="en">Work</span></a>
+    <a href="https://github.com/jrosales284" target="_blank" rel="noopener"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+    <a href="#top"><span lang="es">Volver arriba</span><span lang="en">Back to top</span> <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
   </nav>
-
-  <!-- SECCIÓN ACERCA DE MÍ -->
-  <section id="about" class="about-section">
-    <div class="about-card">
-      <img src="assets/foto-perfil.jpg" alt="Foto de Johanna" class="perfil">
-      <h2>ACERCA DE MÍ</h2>
-      <p>
-        ¡Hola! Soy <strong>Johanna Rosales</strong>, UX/UI Designer y Desarrolladora Web con más de 6 años de experiencia en diseño accesible, dashboards en Power BI, desarrollo web y optimización UX.
-      </p>
-      <a class="btn" href="CV_Johanna_Rosales.pdf" target="_blank">Ver CV</a>
-    </div>
-  </section>
-
-  <!-- SECCIÓN SKILLS -->
-  <section id="skills">
-    <h2>🛠️ Skills</h2>
-    <p><strong>Diseño UX:</strong> Figma, Adobe XD, Miro, Sketch</p>
-    <p><strong>Desarrollo:</strong> React, Angular, WordPress, HTML, CSS</p>
-    <p><strong>Datos:</strong> Power BI, SAP B1 HANA, SQL</p>
-  </section>
-
-  <!-- SECCIÓN PROYECTOS -->
-  <section id="proyectos">
-    <h2>💼 Proyectos</h2>
-    <div class="proyectos-grid">
-      <!-- Aquí irían las cards que ya tienes -->
-    </div>
-  </section>
-
-  <!-- SECCIÓN CONTACTO -->
-  <footer id="contacto">
-    <h2>📬 Contacto</h2>
-    <p>Email: <a href="mailto:johanna.rosalesz@gmail.com">johanna.rosalesz@gmail.com</a></p>
-    <p><a href="https://linkedin.com/in/johannarosales" target="_blank">LinkedIn</a></p>
-    <p>Teléfono: +56 9 9913 09074</p>
-  </footer>
+</div></footer>
 </body>
 </html>
