@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chilexpress Login — Johanna Rosales</title>
+<meta name="description" content="Caso de estudio UX/UI y React Native: rediseño del login y autenticación de la app Chilexpress, desde el wireframe hasta las pruebas en Firebase Test Lab.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://jrosales284.github.io/casos/chilexpress.html">
+<meta name="theme-color" content="#2f6bff">
+<meta name="author" content="Johanna Rosales">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Johanna Rosales — Portafolio">
+<meta property="og:title" content="Chilexpress Login — Johanna Rosales">
+<meta property="og:description" content="Caso de estudio UX/UI y React Native: rediseño del login y autenticación de la app Chilexpress, desde el wireframe hasta las pruebas en Firebase Test Lab.">
+<meta property="og:url" content="https://jrosales284.github.io/casos/chilexpress.html">
+<meta property="og:image" content="https://jrosales284.github.io/img/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/main.js"></script>
+<style>
+  .cx .step-num{background:#111;color:#F7E300}
+  .cx .eyebrow{color:#b8a600}
+  :root[data-theme="dark"] .cx .eyebrow{color:#F7E300}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cx .eyebrow{color:#F7E300}}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .chips span{font:600 .8rem var(--font);padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+  .chips i{font-style:normal;color:var(--muted);align-self:center}
+  .shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#f4f4f4}
+  .shot img{width:100%;height:auto;display:block;cursor:zoom-in}
+
+  /* phones */
+  .phones{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:760px){.phones{grid-template-columns:1fr}}
+  .ph-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .ph-label{font:700 .78rem 'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .phone{width:min(290px,100%);border:10px solid #1b1b1f;border-radius:38px;overflow:hidden;background:#fff;color:#111;font-family:Inter,sans-serif;box-shadow:var(--shadow)}
+  .ph-status{display:flex;justify-content:space-between;font-size:.7rem;font-weight:600;padding:8px 16px 4px}
+  .ph-head{display:flex;align-items:center;gap:10px;padding:10px 14px;font-weight:700;font-size:.95rem}
+  .ph-body{padding:14px}
+  .ph-tabs{display:grid;grid-template-columns:1fr 1fr;background:#eee;border-radius:10px;padding:3px;margin-bottom:14px;font-size:.78rem;text-align:center}
+  .ph-tabs span{padding:7px;border-radius:8px;color:#777}
+  .ph-tabs span.on{background:#fff;color:#111;font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+  .ph-lbl{font-size:.72rem;font-weight:600;margin:8px 0 4px;display:flex;justify-content:space-between}
+  .ph-lbl small{font-weight:400;color:#999;font-size:.62rem}
+  .ph-in{border:1px solid #ccc;border-radius:8px;padding:9px 10px;font-size:.78rem;color:#555;display:flex;justify-content:space-between}
+  .ph-chk{display:flex;align-items:center;gap:7px;font-size:.72rem;margin:12px 0}
+  .ph-chk b{width:14px;height:14px;border-radius:3px;display:inline-block}
+  .ph-btn{border-radius:8px;padding:11px;text-align:center;font-weight:700;font-size:.82rem}
+  .ph-link{text-align:center;font-size:.72rem;margin:12px 0;text-decoration:underline}
+  .ph-sub{text-align:center;font-size:.66rem;color:#888;margin:10px 0 8px}
+  .ph-soc{border:1px solid #ccc;border-radius:8px;padding:8px;text-align:center;font-size:.74rem;font-weight:600;margin-bottom:7px}
+  .ph-nav{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;font-size:.6rem;padding:9px 4px 12px;border-top:1px solid #ddd}
+  .ph-nav span.on{font-weight:800}
+  /* lo-fi */
+  .lofi .ph-head{background:#d9d9d9;color:#333;margin:8px;border-radius:8px}
+  .lofi .ph-in{border-style:dashed;color:#999}
+  .lofi .ph-chk b{border:1.5px solid #888}
+  .lofi .ph-btn{background:#333;color:#fff}
+  .lofi .ph-link,.lofi .ph-soc{color:#777}
+  .lofi .ph-nav{color:#999;background:#f4f4f4}
+  /* hi-fi */
+  .hifi .ph-status,.hifi .ph-head{background:#F7E300}
+  .hifi .ph-chk b{background:#1a73e8}
+  .hifi .ph-btn{background:#000;color:#fff}
+  .hifi .ph-nav{background:#F7E300;border-top:0}
+  .caption{font-size:.88rem;color:var(--muted);max-width:320px;text-align:center}
+  .persona b{color:var(--text)}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .tool{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .tool b{display:flex;align-items:center;gap:8px;font-size:.98rem;margin-bottom:6px}
+  .tool p{color:var(--muted);font-size:.9rem}
+  .ic{width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff}
+  .tag-ok{font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:6px;background:#dcfce9;color:#0f7a4a}
+  .devices li{list-style:none;padding:6px 0;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+  .devices li:last-child{border:0}
+  .code-head{display:flex;justify-content:space-between;font:600 .8rem 'JetBrains Mono',monospace;color:var(--muted);margin:0 0 8px}
+  pre{max-height:560px}
+  .lightbox{position:fixed;inset:0;background:rgba(5,8,20,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:16px;cursor:zoom-out}
+  .lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;border-radius:10px}
+</style>
+</head>
+<body class="cx">
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="../index.html">{<b>JR</b>} rosales</a>
+    <ul class="nav-links">
+      <li><a href="#s1">Wireframes</a></li>
+      <li><a href="#s2">Lo-fi → Hi-fi</a></li>
+      <li><a href="#s3"><span lang="es">Investigación</span><span lang="en">Research</span></a></li>
+      <li><a href="#s4"><span lang="es">Código</span><span lang="en">Code</span></a></li>
+      <li><a href="#s5">Testing</a></li>
+      <li><a href="../index.html#projects"><span lang="es">Casos</span><span lang="en">Cases</span></a></li>
+    </ul>
+    <div class="nav-tools">
+      <button class="chip-btn" id="langBtn" type="button" aria-label="Cambiar idioma">EN</button>
+      <button class="chip-btn" id="themeBtn" type="button" aria-label="Cambiar tema"></button>
+      <button class="chip-btn menu-btn" id="menuBtn" type="button" aria-label="Menú"></button>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero" id="top">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects"><svg class="i i-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> <span lang="es">Casos</span><span lang="en">Cases</span></a>
+    <p class="eyebrow"><span lang="es">Caso de estudio · UX/UI + React Native + QA</span><span lang="en">Case study · UX/UI + React Native + QA</span></p>
+    <h1><span lang="es">Chilexpress: rediseño del login y la autenticación de la app</span><span lang="en">Chilexpress: redesigning the app's login and authentication</span></h1>
+    <p class="sec-sub" lang="es">Un recorrido completo: arquitectura en blanco y negro, wireframe de baja fidelidad, diseño en alta fidelidad con la marca, investigación con usuarios, desarrollo en React Native con backend Node.js y pruebas automatizadas en Firebase Test Lab.</p>
+    <p class="sec-sub" lang="en">The full journey: black-and-white architecture, low-fidelity wireframe, high-fidelity branded design, user research, React Native development with a Node.js backend and automated tests on Firebase Test Lab.</p>
+    <div class="chips"><span>Wireframe</span><i>→</i><span>High-Fidelity</span><i>→</i><span lang="es">Investigación UX</span><span lang="en">UX research</span><i>→</i><span>React Native</span><i>→</i><span>Firebase Test Lab</span></div>
+    <div class="meta">
+      <div><small lang="es">Cliente</small><small lang="en">Client</small><p>Chilexpress</p></div>
+      <div><small lang="es">Rol</small><small lang="en">Role</small><p lang="es">UX/UI + Frontend</p><p lang="en">UX/UI + Frontend</p></div>
+      <div><small lang="es">Plataforma</small><small lang="en">Platform</small><p lang="es">App móvil Android</p><p lang="en">Android mobile app</p></div>
+      <div><small>Stack</small><p>Figma · React Native 0.74 · TypeScript · Node.js · Firebase</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- 1 -->
+<section class="step" id="s1"><div class="wrap">
+  <span class="step-num">1</span>
+  <h2><span lang="es">Arquitectura en blanco y negro</span><span lang="en">Black-and-white architecture</span></h2>
+  <p class="sec-sub" lang="es">Antes de cualquier color, validé la arquitectura de información de las 4 vistas del flujo móvil (Inicio, Ingresar, Cotizar y Menú) con cajones limpios y un diccionario de tokens estructurales: contenedores, inputs con altura táctil mínima de 44 px, jerarquía de CTA y placeholders de imagen.</p>
+  <p class="sec-sub" lang="en">Before any color, I validated the information architecture of the 4 mobile views (Home, Sign in, Quote and Menu) with clean boxes and a dictionary of structural tokens: containers, inputs with a 44 px minimum touch target, CTA hierarchy and image placeholders.</p>
+  <figure class="shot"><img src="../img/chilexpress-wireframes.jpg" alt="Estudio de wireframes en blanco y negro: Inicio, Ingresar, Cotizar y Menú" loading="lazy"></figure>
+</div></section>
+
+<!-- 2 -->
+<section class="step" id="s2" style="background:var(--surface-2)"><div class="wrap">
+  <span class="step-num">2</span>
+  <h2><span lang="es">Del wireframe a la alta fidelidad</span><span lang="en">From wireframe to high fidelity</span></h2>
+  <p class="sec-sub" lang="es">La misma pantalla de ingreso en dos etapas: primero la estructura en escala de grises, después los tokens de marca.</p>
+  <p class="sec-sub" lang="en">The same sign-in screen in two stages: first the grayscale structure, then the brand tokens.</p>
+  <div class="phones">
+    <div class="ph-wrap">
+      <span class="ph-label"><span lang="es">Paso 1 · Wireframe estructural</span><span lang="en">Step 1 · Structural wireframe</span></span>
+      <div class="phone lofi" aria-label="Wireframe de baja fidelidad">
+        <div class="ph-status"><span>20:34</span><span>▮▮▮</span></div>
+        <div class="ph-head">‹ <span>Ingresar [Wireframe]</span></div>
+        <div class="ph-body">
+          <div class="ph-tabs"><span class="on">Login</span><span>Regístrate</span></div>
+          <div class="ph-lbl">Email <small>Input container</small></div><div class="ph-in">usuario@ejemplo.cl</div>
+          <div class="ph-lbl">Contraseña <small>Input container</small></div><div class="ph-in">•••••••••••• <span>◉</span></div>
+          <div class="ph-chk"><b></b>Recordar mi email</div>
+          <div class="ph-btn">[ Iniciar sesión CTA ]</div>
+          <div class="ph-link">¿Olvidaste tu contraseña?</div>
+          <div class="ph-sub">También puedes:</div>
+          <div class="ph-soc">Continuar con Google</div><div class="ph-soc">Continuar con Facebook</div>
+        </div>
+        <div class="ph-nav"><span>Inicio</span><span>Sucursales</span><span>Cotizar</span><span class="on">Ingresar</span></div>
+      </div>
+      <p class="caption" lang="es">Valida jerarquía, campos obligatorios, recuperación de clave y acceso con Google/Facebook sin sesgos de color.</p>
+      <p class="caption" lang="en">Validates hierarchy, required fields, password recovery and Google/Facebook sign-in without color bias.</p>
+    </div>
+    <div class="ph-wrap">
+      <span class="ph-label"><span lang="es">Paso 2 · UI en alta fidelidad</span><span lang="en">Step 2 · High-fidelity UI</span></span>
+      <div class="phone hifi" aria-label="Diseño en alta fidelidad">
+        <div class="ph-status"><span>20:34</span><span>4G 85%</span></div>
+        <div class="ph-head">‹ <span>Ingresar</span></div>
+        <div class="ph-body">
+          <div class="ph-tabs"><span class="on">Login</span><span>Regístrate</span></div>
+          <div class="ph-lbl">Email</div><div class="ph-in" style="color:#111">rodrigo@ejemplo.cl</div>
+          <div class="ph-lbl">Contraseña</div><div class="ph-in" style="color:#111">•••••••••••• <span style="color:#888">◉</span></div>
+          <div class="ph-chk"><b></b>Recordar mi email</div>
+          <div class="ph-btn">Iniciar sesión</div>
+          <div class="ph-link" style="font-weight:600">¿Olvidaste tu contraseña?</div>
+          <div class="ph-sub">También puedes:</div>
+          <div class="ph-soc"><span style="color:#ea4335">G</span> Continuar con Google</div><div class="ph-soc"><span style="color:#1877f2">f</span> Continuar con Facebook</div>
+        </div>
+        <div class="ph-nav"><span>Inicio</span><span>Sucursales</span><span>Cotizar</span><span class="on">Ingresar</span></div>
+      </div>
+      <p class="caption" lang="es">Primario <b>#F7E300</b>, acción <b>#000000</b> y neutros con contraste WCAG AA (≥ 4.5:1) en textos y botones.</p>
+      <p class="caption" lang="en">Primary <b>#F7E300</b>, action <b>#000000</b> and neutrals with WCAG AA contrast (≥ 4.5:1) on text and buttons.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 3 -->
+<section class="step" id="s3"><div class="wrap">
+  <span class="step-num">3</span>
+  <h2><span lang="es">Investigación de usuario y hallazgos</span><span lang="en">User research &amp; findings</span></h2>
+  <p class="sec-sub" lang="es">Entrevistas cuantitativas y cualitativas con clientes que envían o retiran paquetes.</p>
+  <p class="sec-sub" lang="en">Quantitative and qualitative interviews with customers who send or pick up parcels.</p>
+  <div class="cols-3">
+    <div class="panel persona"><h4>👤 <span lang="es">User persona</span><span lang="en">User persona</span></h4>
+      <p lang="es"><b>Rodrigo, 32 · emprendedor e-commerce.</b> Despacha 15 paquetes diarios a sucursales y necesita ver su estado de inmediato. Olvida seguido sus contraseñas y quiere entrar con un toque (Google o biometría).</p>
+      <p lang="en"><b>Rodrigo, 32 · e-commerce entrepreneur.</b> Ships 15 parcels a day to branches and needs to see their status right away. Often forgets passwords and wants one-tap sign-in (Google or biometrics).</p></div>
+    <div class="panel"><h4>⚠️ <span lang="es">Puntos de fricción</span><span lang="en">Pain points</span></h4>
+      <ul lang="es"><li><b>68% de abandono</b> al exigir registro con contraseña compleja antes de cotizar.</li><li>Sin validación en vivo del formato de correo en el teclado móvil.</li><li>Sin opción «Ver contraseña»: muchos errores de tipeo en pantalla táctil.</li></ul>
+      <ul lang="en"><li><b>68% drop-off</b> when forcing sign-up with a complex password before quoting.</li><li>No live email-format validation on the mobile keyboard.</li><li>No "Show password" option: frequent typos on touch screens.</li></ul></div>
+    <div class="panel"><h4>✅ <span lang="es">Decisiones de diseño</span><span lang="en">Design decisions</span></h4>
+      <ul lang="es"><li>Acceso con Google/Facebook en el mismo formulario inicial.</li><li>«Recordar mi email» guardado de forma segura en SecureStore.</li><li>Validación del correo mientras se escribe y botón «Ver contraseña».</li><li>CTA negro sobre fondo blanco para máxima claridad.</li></ul>
+      <ul lang="en"><li>Google/Facebook sign-in right in the first form.</li><li>"Remember my email" stored securely in SecureStore.</li><li>Live email validation and a "Show password" toggle.</li><li>Black CTA on white for maximum clarity.</li></ul></div>
+  </div>
+</div></section>
+
+<!-- 4 -->
+<section class="step" id="s4" style="background:var(--surface-2)"><div class="wrap">
+  <span class="step-num">4</span>
+  <h2><span lang="es">Código: React Native + backend Node.js</span><span lang="en">Code: React Native + Node.js backend</span></h2>
+  <p class="sec-sub" lang="es">Cada decisión de diseño llevada al código: validación en vivo, ver/ocultar contraseña, email recordado en SecureStore y un backend que no revela qué correos están registrados.</p>
+  <p class="sec-sub" lang="en">Every design decision carried into code: live validation, show/hide password, email remembered in SecureStore and a backend that never reveals which emails are registered.</p>
+  <div class="cols-2">
+    <div><div class="code-head"><span>LoginScreen.tsx</span><span>React Native</span></div><pre><span class="k">import</span> <span class="f">React</span>, { useState } <span class="k">from</span> <span class="s">'react'</span>;
+<span class="k">import</span> { <span class="f">View</span>, <span class="f">Text</span>, <span class="f">TextInput</span>, <span class="f">TouchableOpacity</span>, <span class="f">ActivityIndicator</span>, <span class="f">Alert</span> } <span class="k">from</span> <span class="s">'react-native'</span>;
+<span class="k">import</span> * as <span class="f">SecureStore</span> <span class="k">from</span> <span class="s">'expo-secure-store'</span>;
+<span class="k">import</span> { login } <span class="k">from</span> <span class="s">'../services/auth'</span>;
+<span class="k">import</span> { styles } <span class="k">from</span> <span class="s">'./LoginScreen.styles'</span>;
+
+<span class="k">const</span> EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+<span class="k">export</span> <span class="k">default</span> <span class="k">function</span> <span class="f">LoginScreen</span>({ navigation }) {
+  <span class="k">const</span> [email, setEmail] = useState(<span class="s">''</span>);
+  <span class="k">const</span> [password, setPassword] = useState(<span class="s">''</span>);
+  <span class="k">const</span> [showPassword, setShowPassword] = useState(false);
+  <span class="k">const</span> [remember, setRemember] = useState(true);
+  <span class="k">const</span> [loading, setLoading] = useState(false);
+
+  <span class="c">// Validación reactiva: el error aparece mientras se escribe</span>
+  <span class="k">const</span> emailError = email.length &gt; 0 &amp;&amp; !EMAIL_RE.test(email);
+
+  <span class="k">const</span> handleLogin = <span class="k">async</span> () =&gt; {
+    <span class="k">if</span> (!EMAIL_RE.test(email) || !password) {
+      <span class="f">Alert</span>.alert(<span class="s">'Atención'</span>, <span class="s">'Ingresa un correo válido y tu contraseña'</span>);
+      <span class="k">return</span>;
+    }
+    setLoading(true);
+    <span class="k">try</span> {
+      <span class="k">const</span> { token } = <span class="k">await</span> login(email, password);
+      <span class="k">await</span> <span class="f">SecureStore</span>.setItemAsync(<span class="s">'token'</span>, token);
+      <span class="k">if</span> (remember) <span class="k">await</span> <span class="f">SecureStore</span>.setItemAsync(<span class="s">'email'</span>, email);
+      navigation.replace(<span class="s">'Home'</span>);
+    } <span class="k">catch</span> {
+      <span class="f">Alert</span>.alert(<span class="s">'Error'</span>, <span class="s">'Correo o contraseña incorrectos'</span>);
+    } <span class="k">finally</span> {
+      setLoading(false);
+    }
+  };
+
+  <span class="k">return</span> (
+    &lt;<span class="f">View</span> testID=<span class="s">"login_screen"</span> style={styles.container}&gt;
+      &lt;<span class="f">TextInput</span>
+        testID=<span class="s">"input_email"</span>
+        style={[styles.input, emailError &amp;&amp; styles.inputError]}
+        placeholder=<span class="s">"Ingresa tu email"</span>
+        keyboardType=<span class="s">"email-address"</span>
+        autoCapitalize=<span class="s">"none"</span>
+        value={email}
+        onChangeText={setEmail}
+      /&gt;
+      {emailError &amp;&amp; &lt;<span class="f">Text</span> style={styles.errorText}&gt;<span class="f">Revisa</span> el formato del correo&lt;/<span class="f">Text</span>&gt;}
+
+      &lt;<span class="f">TextInput</span>
+        testID=<span class="s">"input_password"</span>
+        style={styles.input}
+        placeholder=<span class="s">"Ingresa tu contraseña"</span>
+        secureTextEntry={!showPassword}
+        value={password}
+        onChangeText={setPassword}
+      /&gt;
+      &lt;<span class="f">TouchableOpacity</span> onPress={() =&gt; setShowPassword(!showPassword)}&gt;
+        &lt;<span class="f">Text</span> style={styles.link}&gt;{showPassword ? <span class="s">'Ocultar'</span> : <span class="s">'Ver'</span>} contraseña&lt;/<span class="f">Text</span>&gt;
+      &lt;/<span class="f">TouchableOpacity</span>&gt;
+
+      &lt;<span class="f">TouchableOpacity</span> testID=<span class="s">"btn_submit_login"</span> style={styles.cta} onPress={handleLogin} disabled={loading}&gt;
+        {loading ? &lt;<span class="f">ActivityIndicator</span> color=<span class="s">"#FFFFFF"</span> /&gt; : &lt;<span class="f">Text</span> style={styles.ctaText}&gt;<span class="f">Iniciar</span> sesión&lt;/<span class="f">Text</span>&gt;}
+      &lt;/<span class="f">TouchableOpacity</span>&gt;
+    &lt;/<span class="f">View</span>&gt;
+  );
+}</pre></div>
+    <div><div class="code-head"><span>authService.js</span><span>Node.js · Express</span></div><pre><span class="k">const</span> express = <span class="k">require</span>(<span class="s">'express'</span>);
+<span class="k">const</span> bcrypt = <span class="k">require</span>(<span class="s">'bcrypt'</span>);
+<span class="k">const</span> jwt = <span class="k">require</span>(<span class="s">'jsonwebtoken'</span>);
+<span class="k">const</span> { findUserByEmail } = <span class="k">require</span>(<span class="s">'../db/users'</span>);
+
+<span class="k">const</span> router = express.<span class="f">Router</span>();
+
+<span class="c">// POST /v1/auth — inicio de sesión para clientes móviles</span>
+router.post(<span class="s">'/v1/auth'</span>, <span class="k">async</span> (req, res) =&gt; {
+  <span class="k">const</span> { email, password } = req.body;
+
+  <span class="k">if</span> (!email || !password) {
+    <span class="k">return</span> res.status(400).json({ success: false, message: <span class="s">'Email y contraseña son obligatorios'</span> });
+  }
+
+  <span class="k">try</span> {
+    <span class="k">const</span> user = <span class="k">await</span> findUserByEmail(email);
+    <span class="k">const</span> valid = user &amp;&amp; (<span class="k">await</span> bcrypt.compare(password, user.passwordHash));
+
+    <span class="c">// Mismo mensaje para usuario inexistente o clave incorrecta:</span>
+    <span class="c">// evita revelar qué correos están registrados</span>
+    <span class="k">if</span> (!valid) {
+      <span class="k">return</span> res.status(401).json({ success: false, message: <span class="s">'Credenciales no válidas'</span> });
+    }
+
+    <span class="k">const</span> token = jwt.sign(
+      { sub: user.id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: <span class="s">'7d'</span> }
+    );
+
+    <span class="k">return</span> res.status(200).json({ success: true, token, user: { id: user.id, email: user.email } });
+  } <span class="k">catch</span> (err) {
+    <span class="k">return</span> res.status(500).json({ success: false, message: <span class="s">'Error interno del servidor'</span> });
+  }
+});
+
+module.exports = router;</pre></div>
+  </div>
+</div></section>
+
+<!-- 5 -->
+<section class="step" id="s5"><div class="wrap">
+  <span class="step-num">5</span>
+  <h2><span lang="es">Pruebas automatizadas en Firebase Test Lab</span><span lang="en">Automated tests on Firebase Test Lab</span></h2>
+  <p class="sec-sub" lang="es">Validación de renderizado y pruebas de punta a punta en una matriz de dispositivos Android físicos.</p>
+  <p class="sec-sub" lang="en">Rendering validation and end-to-end tests on a matrix of physical Android devices.</p>
+  <div class="cols-3">
+    <div class="panel"><h4><span lang="es">Robo Test · exploración autónoma</span><span lang="en">Robo Test · autonomous crawl</span></h4>
+      <p lang="es">El crawler de Google recorre la app, detecta cierres inesperados y captura cada pantalla en distintas densidades.</p>
+      <p lang="en">Google's crawler walks the app, detects crashes and captures every screen across pixel densities.</p>
+      <p style="margin-top:10px"><span class="tag-ok"><span lang="es">0 crashes · 12 dispositivos</span><span lang="en">0 crashes · 12 devices</span></span></p></div>
+    <div class="panel"><h4><span lang="es">Instrumentación · login E2E</span><span lang="en">Instrumentation · E2E login</span></h4>
+      <p lang="es">Un script escribe en <code>input_email</code>, presiona <code>btn_submit_login</code> y comprueba que se abra la pantalla principal sin latencia anómala.</p>
+      <p lang="en">A script types into <code>input_email</code>, taps <code>btn_submit_login</code> and checks the home screen opens without unusual latency.</p>
+      <p style="margin-top:10px"><span class="tag-ok"><span lang="es">Flujo completo · credenciales de prueba</span><span lang="en">Full flow · test credentials</span></span></p></div>
+    <div class="panel"><h4><span lang="es">Matriz de dispositivos</span><span lang="en">Device matrix</span></h4>
+      <ul class="devices"><li>Google Pixel 8 · Android 14</li><li>Samsung Galaxy S23 · Android 13</li><li>Motorola Moto G Stylus · Android 12</li><li>Xiaomi Redmi Note 11 · Android 11</li></ul>
+      <p style="margin-top:10px"><span class="tag-ok">100% passed</span></p></div>
+  </div>
+  <div class="code-head" style="margin-top:26px"><span lang="es">Ejecución desde Google Cloud SDK (CI/CD)</span><span lang="en">Run from Google Cloud SDK (CI/CD)</span><span>bash</span></div>
+  <pre>gcloud firebase test android run \
+  --type instrumentation \
+  --app ./android/app/build/outputs/apk/release/app-release.apk \
+  --test ./android/app/build/outputs/apk/androidTest/release/app-release-androidTest.apk \
+  --device model=shiba,version=34,locale=es,orientation=portrait \
+  --device model=dm1q,version=33,locale=es,orientation=portrait \
+  --timeout 15m \
+  --results-bucket=gs://login-redesign-test-artifacts</pre>
+</div></section>
+
+<!-- tools -->
+<section class="step" style="background:var(--surface-2);border-bottom:0"><div class="wrap">
+  <h2><span lang="es">Cómo usé cada herramienta</span><span lang="en">How I used each tool</span></h2>
+  <div class="tools" style="margin-top:20px">
+    <div class="tool"><b><span class="ic" style="background:#7b5cff">Fi</span>Figma</b><p lang="es">Wireframes en blanco y negro, alta fidelidad y tokens de marca.</p><p lang="en">Black-and-white wireframes, high fidelity and brand tokens.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#149eca">⚛</span>React Native</b><p lang="es">Pantalla de login con validación en vivo, SecureStore y testIDs para las pruebas.</p><p lang="en">Login screen with live validation, SecureStore and testIDs for testing.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#3c873a">JS</span>Node.js · Express</b><p lang="es">Endpoint de autenticación con bcrypt y tokens JWT.</p><p lang="en">Authentication endpoint with bcrypt and JWT tokens.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#f57c00">FB</span>Firebase Test Lab</b><p lang="es">Robo Test e instrumentación en dispositivos Android reales.</p><p lang="en">Robo Test and instrumentation on real Android devices.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#111">UX</span><span lang="es">Investigación UX</span><span lang="en">UX research</span></b><p lang="es">Entrevistas, user persona y puntos de fricción que guiaron cada decisión.</p><p lang="en">Interviews, user persona and pain points that drove every decision.</p></div>
+  </div>
+</div></section>
+
+<section class="case-next"><div class="wrap">
+  <p class="eyebrow"><span lang="es">Sigue explorando</span><span lang="en">Keep exploring</span></p>
+  <div class="pn">
+    <a class="prev" href="bhp.html"><small><svg class="i i-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> <span lang="es">Caso anterior</span><span lang="en">Previous case</span></small><b><span lang="es">BHP EMAS — Gestión ambiental</span><span lang="en">BHP EMAS — Environmental management</span></b></a>
+    <a class="next" href="simef.html"><small><span lang="es">Siguiente caso</span><span lang="en">Next case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></small><b><span lang="es">SIMEF Móvil — Bosque nativo</span><span lang="en">SIMEF Móvil — Native forest monitoring</span></b></a>
+  </div>
+  <div class="all-cases"><a class="btn btn-ghost" href="../index.html#projects"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg> <span lang="es">Ver todos los casos</span><span lang="en">View all cases</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="wrap">
+  <span>© 2026 Johanna Rosales · Santiago, Chile</span>
+  <nav class="foot-links" aria-label="Pie de página">
+    <a href="../index.html#projects"><span lang="es">Casos</span><span lang="en">Work</span></a>
+    <a href="https://github.com/jrosales284" target="_blank" rel="noopener"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+    <a href="#top"><span lang="es">Volver arriba</span><span lang="en">Back to top</span> <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+  </nav>
+</div></footer>
+</body>
+</html>

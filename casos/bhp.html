@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BHP EMAS — Johanna Rosales</title>
+<meta name="description" content="Caso de estudio UX/UI: EMAS, sistema de gestión ambiental para Minera Escondida y Spence (BHP). Investigación, sistema de diseño, flujos de acceso, dashboards y testing.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://jrosales284.github.io/casos/bhp.html">
+<meta name="theme-color" content="#2f6bff">
+<meta name="author" content="Johanna Rosales">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Johanna Rosales — Portafolio">
+<meta property="og:title" content="BHP EMAS — Johanna Rosales">
+<meta property="og:description" content="Caso de estudio UX/UI: EMAS, sistema de gestión ambiental para Minera Escondida y Spence (BHP). Investigación, sistema de diseño, flujos de acceso, dashboards y testing.">
+<meta property="og:url" content="https://jrosales284.github.io/casos/bhp.html">
+<meta property="og:image" content="https://jrosales284.github.io/img/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/main.js"></script>
+<style>
+  .bhp{--bhp:#c43d00}
+  .bhp .step-num{background:var(--bhp)}
+  .bhp .eyebrow{color:var(--bhp)}
+  .shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--surface)}
+  .shot img{width:100%;height:auto;cursor:zoom-in;display:block}
+  .shot figcaption{padding:12px 16px;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line)}
+  .gal3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .gal2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:860px){.gal3,.gal2{grid-template-columns:1fr}}
+  .stack-v{display:grid;gap:22px}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .tool{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .tool b{display:flex;align-items:center;gap:8px;font-size:.98rem;margin-bottom:6px}
+  .tool p{color:var(--muted);font-size:.9rem}
+  .ic{width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff}
+  .pass{font-size:.75rem;font-weight:700;color:#0f7a4a;background:#dcfce9;padding:3px 8px;border-radius:6px;white-space:nowrap}
+  .swatches{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .swatches span{display:inline-flex;align-items:center;gap:6px;font:500 .78rem 'JetBrains Mono',monospace;padding:5px 9px;border-radius:8px;border:1px solid var(--line);background:var(--surface)}
+  .swatches i{width:14px;height:14px;border-radius:4px;display:inline-block}
+  .lightbox{position:fixed;inset:0;background:rgba(5,8,20,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:16px;cursor:zoom-out}
+  .lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;border-radius:10px}
+  .table-wrap{overflow-x:auto}
+</style>
+</head>
+<body class="bhp">
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="../index.html">{<b>JR</b>} rosales</a>
+    <ul class="nav-links">
+      <li><a href="#s1"><span lang="es">Investigación</span><span lang="en">Research</span></a></li>
+      <li><a href="#s2"><span lang="es">Diseño</span><span lang="en">Design system</span></a></li>
+      <li><a href="#s3"><span lang="es">Acceso</span><span lang="en">Sign-in</span></a></li>
+      <li><a href="#s4">Dashboards</a></li>
+      <li><a href="#s5">Testing</a></li>
+      <li><a href="../index.html#projects"><span lang="es">Casos</span><span lang="en">Cases</span></a></li>
+    </ul>
+    <div class="nav-tools">
+      <button class="chip-btn" id="langBtn" type="button" aria-label="Cambiar idioma">EN</button>
+      <button class="chip-btn" id="themeBtn" type="button" aria-label="Cambiar tema"></button>
+      <button class="chip-btn menu-btn" id="menuBtn" type="button" aria-label="Menú"></button>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero" id="top">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects"><svg class="i i-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> <span lang="es">Casos</span><span lang="en">Cases</span></a>
+    <p class="eyebrow">UX/UI · Design System · Testing · BHP Minerals Americas</p>
+    <h1><span lang="es">BHP EMAS: sistema de gestión ambiental para Escondida y Spence</span><span lang="en">BHP EMAS: an environmental management system for Escondida and Spence</span></h1>
+    <p class="sec-sub" lang="es">Diseño de punta a punta de una plataforma para seguir el cumplimiento ambiental, los riesgos y el balance hídrico de dos faenas mineras, con acceso separado para operaciones Chile y para el equipo corporativo de Australia.</p>
+    <p class="sec-sub" lang="en">End-to-end design of a platform to track environmental compliance, risk and water balance across two mine sites, with separate sign-in for Chile operations and the Australian corporate team.</p>
+    <div class="meta">
+      <div><small lang="es">Cliente</small><small lang="en">Client</small><p>BHP · Escondida &amp; Spence</p></div>
+      <div><small lang="es">Rol</small><small lang="en">Role</small><p lang="es">Diseñadora UX/UI</p><p lang="en">UX/UI designer</p></div>
+      <div><small lang="es">Equipos</small><small lang="en">Teams</small><p lang="es">Chile · India · Australia</p><p lang="en">Chile · India · Australia</p></div>
+      <div><small>Stack</small><p>Figma · HTML/CSS · Node.js · WCAG AA</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- 1 Investigación -->
+<section class="step" id="s1"><div class="wrap">
+  <span class="step-num">1</span>
+  <h2><span lang="es">Investigación operacional</span><span lang="en">Operational research</span></h2>
+  <p class="sec-sub" lang="es">Antes de diseñar, levanté el contexto de las faenas, lo que los usuarios ya conocían y las restricciones ambientales que el sistema debía reflejar.</p>
+  <p class="sec-sub" lang="en">Before designing, I mapped the sites' context, what users already knew and the environmental constraints the system had to reflect.</p>
+  <div class="cols-3">
+    <div class="panel"><h4><span lang="es">Activos mineros en Chile</span><span lang="en">Chile mining assets</span></h4>
+      <p lang="es">Minera Escondida (rajo abierto, 3.100 msnm) y Spence (Sierra Gorda): dos faenas con realidades distintas en un mismo sistema.</p>
+      <p lang="en">Minera Escondida (open pit, 3,100 m above sea level) and Spence (Sierra Gorda): two different sites in one system.</p></div>
+    <div class="panel"><h4><span lang="es">Herencia de UI existente</span><span lang="en">Existing UI heritage</span></h4>
+      <p lang="es">Se respetó lo que los usuarios ya usaban en Life On: navegación hexagonal, matrices de riesgo (IF/IG), indicadores por severidad y semáforo de documentos por vencer.</p>
+      <p lang="en">I kept what users already knew from Life On: hexagonal navigation, risk matrices (frequency/severity), severity indicators and a traffic light for expiring documents.</p></div>
+    <div class="panel"><h4><span lang="es">Transición hídrica</span><span lang="en">Water transition</span></h4>
+      <p lang="es">El sistema debía mostrar el paso a agua de mar desalinizada y la protección de acuíferos (Monturaqui y Punta Negra).</p>
+      <p lang="en">The system had to show the shift to desalinated seawater and the protection of aquifers (Monturaqui and Punta Negra).</p></div>
+  </div>
+</div></section>
+
+<!-- 2 Sistema de diseño -->
+<section class="step" id="s2" style="background:var(--surface-2)"><div class="wrap">
+  <span class="step-num">2</span>
+  <h2><span lang="es">Sistema de diseño y tokens</span><span lang="en">Design system &amp; tokens</span></h2>
+  <p class="sec-sub" lang="es">Definí tokens de color con roles semánticos para Figma y desarrollo: identidad de marca, un semáforo de cumplimiento normativo (RCA y SMA) y superficies. Cada combinación se validó con contraste WCAG AA (≥ 4.5:1).</p>
+  <p class="sec-sub" lang="en">I defined semantic color tokens for Figma and development: brand identity, a regulatory compliance traffic light (RCA and SMA) and surfaces. Every pairing was checked for WCAG AA contrast (≥ 4.5:1).</p>
+  <div class="swatches">
+    <span><i style="background:#C43D00"></i>primary</span><span><i style="background:#E65100"></i>accent</span><span><i style="background:#1E293B"></i>secondary</span><span><i style="background:#475569"></i>neutral</span>
+    <span><i style="background:#15803D"></i>success</span><span><i style="background:#B45309"></i>warning</span><span><i style="background:#B91C1C"></i>danger</span><span><i style="background:#0284C7"></i>water-info</span>
+  </div>
+  <figure class="shot" style="margin-top:22px"><img src="../img/bhp-tokens.jpg" alt="Tokens de color EMAS" loading="lazy"></figure>
+</div></section>
+
+<!-- 3 Acceso -->
+<section class="step" id="s3"><div class="wrap">
+  <span class="step-num">3</span>
+  <h2><span lang="es">Flujos de acceso por región</span><span lang="en">Region-based sign-in flows</span></h2>
+  <p class="sec-sub" lang="es">Dos perfiles muy distintos entraban al mismo sistema. Diseñé un acceso para el personal de faena en Chile (selector Escondida/Spence, sesión por turno 7×7) y otro en inglés para el equipo corporativo de Australia con Microsoft Entra ID, ambos terminando en una verificación MFA con number matching.</p>
+  <p class="sec-sub" lang="en">Two very different user groups shared one system. I designed one sign-in for Chile site staff (Escondida/Spence selector, 7×7 shift sessions) and an English one for the Australian corporate team with Microsoft Entra ID, both ending in an MFA number-matching check.</p>
+  <div class="gal3">
+    <figure class="shot"><img src="../img/bhp-login-cl.jpg" alt="Login Operaciones Chile" loading="lazy"><figcaption lang="es">Operaciones Chile · Escondida &amp; Spence</figcaption><figcaption lang="en">Chile operations · Escondida &amp; Spence</figcaption></figure>
+    <figure class="shot"><img src="../img/bhp-login-au.jpg" alt="Global Staff Sign In" loading="lazy"><figcaption lang="es">Australia &amp; Global Corporate</figcaption><figcaption lang="en">Australia &amp; Global Corporate</figcaption></figure>
+    <figure class="shot"><img src="../img/bhp-mfa.jpg" alt="Verificación MFA" loading="lazy"><figcaption lang="es">Verificación segura MFA</figcaption><figcaption lang="en">Secure MFA verification</figcaption></figure>
+  </div>
+</div></section>
+
+<!-- 4 Dashboards -->
+<section class="step" id="s4" style="background:var(--surface-2)"><div class="wrap">
+  <span class="step-num">4</span>
+  <h2><span lang="es">Portal y dashboards</span><span lang="en">Portal &amp; dashboards</span></h2>
+  <p class="sec-sub" lang="es">Del portal de ingreso con los módulos especializados, al dashboard general de cumplimiento y al módulo de balance hídrico. Misma jerarquía en todas las vistas: KPIs arriba, tendencias al medio, pendientes y acciones abajo.</p>
+  <p class="sec-sub" lang="en">From the entry portal with specialized modules, to the general compliance dashboard and the water balance module. Same hierarchy across views: KPIs on top, trends in the middle, pending items and actions below.</p>
+  <div class="stack-v">
+    <figure class="shot"><img src="../img/bhp-portal.jpg" alt="Portal de Ingreso EMAS" loading="lazy"><figcaption lang="es">Portal de ingreso: acceso SSO, marco de sostenibilidad y módulos (agua, aire, relaves, compromisos RCA).</figcaption><figcaption lang="en">Entry portal: SSO access, sustainability framework and modules (water, air, tailings, RCA commitments).</figcaption></figure>
+    <div class="gal2">
+      <figure class="shot"><img src="../img/bhp-dashboard.jpg" alt="Dashboard General Escondida y Spence" loading="lazy"><figcaption lang="es">Dashboard general: cumplimiento RCA, riesgos Life On, calendario ambiental y documentos por vencer.</figcaption><figcaption lang="en">General dashboard: RCA compliance, Life On risks, environmental calendar and expiring documents.</figcaption></figure>
+      <figure class="shot"><img src="../img/bhp-agua.jpg" alt="Balance hídrico y desalinización" loading="lazy"><figcaption lang="es">Módulo hídrico: caudal de acueductos, plantas desalinizadoras y protección de cuencas.</figcaption><figcaption lang="en">Water module: aqueduct flow, desalination plants and basin protection.</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<!-- 5 Testing -->
+<section class="step" id="s5"><div class="wrap">
+  <span class="step-num">5</span>
+  <h2><span lang="es">Investigación y suite de testing</span><span lang="en">Research report &amp; test suite</span></h2>
+  <p class="sec-sub" lang="es">Cada pantalla se verificó contra un criterio concreto antes de entregarla a desarrollo, y el reporte se exportó a Figma para los equipos de producto y diseño.</p>
+  <p class="sec-sub" lang="en">Each screen was checked against a concrete criterion before handoff to development, and the report was exported to Figma for the product and design teams.</p>
+  <div class="panel table-wrap">
+    <table class="clean">
+      <thead><tr><th>ID</th><th lang="es">Pantalla</th><th lang="en">Screen</th><th lang="es">Criterio verificado</th><th lang="en">Criterion checked</th><th lang="es">Estado</th><th lang="en">Status</th></tr></thead>
+      <tbody>
+        <tr><td>TEST-01</td><td>Login Portal</td><td lang="es">Autenticación SSO y selector Escondida/Spence</td><td lang="en">SSO sign-in and Escondida/Spence selector</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>TEST-02</td><td>Dashboard</td><td lang="es">Navegación hexagonal Life On, donas de riesgo y calendario</td><td lang="en">Life On hexagonal nav, risk donuts and calendar</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>TEST-03</td><td>Water Monitoring</td><td lang="es">Telemetría de caudal L/s, gráficos y acuíferos protegidos</td><td lang="en">L/s flow telemetry, charts and protected aquifers</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>TEST-04</td><td>Login Chile</td><td lang="es">Ingreso por turno 7×7 y credenciales de faena</td><td lang="en">7×7 shift sign-in and site credentials</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>TEST-05</td><td>Login Australia</td><td lang="es">Autenticación Microsoft Entra ID para Melbourne/Perth</td><td lang="en">Microsoft Entra ID sign-in for Melbourne/Perth</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>TEST-06</td><td>MFA</td><td lang="es">Desafío number matching de Authenticator hacia el dashboard</td><td lang="en">Authenticator number-matching challenge into the dashboard</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>TEST-07</td><td>Design tokens</td><td lang="es">Contraste WCAG AA (≥ 4.5:1) en botones y texto</td><td lang="en">WCAG AA contrast (≥ 4.5:1) on buttons and text</td><td><span class="pass">PASS</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure class="shot" style="margin-top:22px;max-width:760px"><img src="../img/bhp-reporte.jpg" alt="Reporte de investigación y pruebas" loading="lazy"></figure>
+</div></section>
+
+<!-- Herramientas -->
+<section class="step" style="background:var(--surface-2);border-bottom:0"><div class="wrap">
+  <h2><span lang="es">Cómo usé cada herramienta</span><span lang="en">How I used each tool</span></h2>
+  <div class="tools" style="margin-top:20px">
+    <div class="tool"><b><span class="ic" style="background:#7b5cff">Fi</span>Figma</b>
+      <p lang="es">Pantallas, prototipos y flujos presentados a los equipos de India, Chile y Australia; tokens de color y specs para desarrollo.</p>
+      <p lang="en">Screens, prototypes and flows presented to teams in India, Chile and Australia; color tokens and dev specs.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#e44d26">&lt;/&gt;</span>HTML · CSS</b>
+      <p lang="es">Prototipos navegables en código para probar cada pantalla con datos realistas.</p>
+      <p lang="en">Clickable code prototypes to test every screen with realistic data.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#3c873a">JS</span>Node.js</b>
+      <p lang="es">Script de verificación automática de las pantallas antes de cada entrega.</p>
+      <p lang="en">Automated screen-check script before each delivery.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#0f7a4a">AA</span>WCAG</b>
+      <p lang="es">Validación de contraste para lectura en terreno y accesibilidad.</p>
+      <p lang="en">Contrast validation for field readability and accessibility.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#ff6b6b">⇄</span>Scrum · Jira</b>
+      <p lang="es">Sprints, backlog y rediseños iterativos hasta la conformidad del cliente.</p>
+      <p lang="en">Sprints, backlog and iterative redesigns until client sign-off.</p></div>
+  </div>
+</div></section>
+
+<section class="case-next"><div class="wrap">
+  <p class="eyebrow"><span lang="es">Sigue explorando</span><span lang="en">Keep exploring</span></p>
+  <div class="pn">
+    <a class="prev" href="sodexo.html"><small><svg class="i i-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> <span lang="es">Caso anterior</span><span lang="en">Previous case</span></small><b><span lang="es">Sodexo Chile — People Analytics</span><span lang="en">Sodexo Chile — People Analytics</span></b></a>
+    <a class="next" href="chilexpress.html"><small><span lang="es">Siguiente caso</span><span lang="en">Next case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></small><b><span lang="es">Chilexpress — Rediseño del login</span><span lang="en">Chilexpress — Login redesign</span></b></a>
+  </div>
+  <div class="all-cases"><a class="btn btn-ghost" href="../index.html#projects"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg> <span lang="es">Ver todos los casos</span><span lang="en">View all cases</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="wrap">
+  <span>© 2026 Johanna Rosales · Santiago, Chile</span>
+  <nav class="foot-links" aria-label="Pie de página">
+    <a href="../index.html#projects"><span lang="es">Casos</span><span lang="en">Work</span></a>
+    <a href="https://github.com/jrosales284" target="_blank" rel="noopener"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+    <a href="#top"><span lang="es">Volver arriba</span><span lang="en">Back to top</span> <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+  </nav>
+</div></footer>
+</body>
+</html>

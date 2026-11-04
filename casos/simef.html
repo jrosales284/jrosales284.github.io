@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMEF Móvil — Johanna Rosales</title>
+<meta name="description" content="Caso de estudio UX/UI y frontend: SIMEF Móvil, plataforma de monitoreo de bosque nativo para CIREN, CONAF e INFOR.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://jrosales284.github.io/casos/simef.html">
+<meta name="theme-color" content="#2f6bff">
+<meta name="author" content="Johanna Rosales">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Johanna Rosales — Portafolio">
+<meta property="og:title" content="SIMEF Móvil — Johanna Rosales">
+<meta property="og:description" content="Caso de estudio UX/UI y frontend: SIMEF Móvil, plataforma de monitoreo de bosque nativo para CIREN, CONAF e INFOR.">
+<meta property="og:url" content="https://jrosales284.github.io/casos/simef.html">
+<meta property="og:image" content="https://jrosales284.github.io/img/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/main.js"></script>
+<style>
+  .forest{--accent:#10a36e}
+  .stackpills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .stackpills span{font:500 .8rem 'JetBrains Mono',monospace;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface)}
+  .stackpills span::before{content:"● ";color:#10a36e}
+  .shot{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);margin:8px 0 0;background:#080c12}
+  .shot img{width:100%;height:auto}
+  .phase{position:relative}
+  .phase .n{font:700 1rem var(--display);color:#10a36e;background:color-mix(in srgb,#10a36e 14%,transparent);border:1px solid color-mix(in srgb,#10a36e 40%,transparent);width:40px;height:40px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
+  .phase li{margin-bottom:10px}
+  .phase li b{color:var(--text)}
+  .tree{font:500 .84rem/1.75 'JetBrains Mono',monospace;background:#0e1224;color:#d6def7;border-radius:12px;padding:18px;overflow-x:auto;white-space:pre}
+  .tree .d{color:#4fd1a5}.tree .m{color:#697098}
+  .quote{border-left:4px solid #10a36e;background:var(--surface);border-radius:12px;padding:22px 24px;font-size:1.05rem}
+</style>
+</head>
+<body class="forest">
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="../index.html">{<b>JR</b>} rosales</a>
+    <ul class="nav-links">
+      <li><a href="#pantallas"><span lang="es">Pantallas</span><span lang="en">Screens</span></a></li>
+      <li><a href="#proceso"><span lang="es">Proceso</span><span lang="en">Process</span></a></li>
+      <li><a href="#codigo"><span lang="es">Código</span><span lang="en">Code</span></a></li>
+      <li><a href="../index.html#projects"><span lang="es">Todos los casos</span><span lang="en">All cases</span></a></li>
+    </ul>
+    <div class="nav-tools">
+      <button class="chip-btn" id="langBtn" type="button" aria-label="Cambiar idioma">EN</button>
+      <button class="chip-btn" id="themeBtn" type="button" aria-label="Cambiar tema"></button>
+      <button class="chip-btn menu-btn" id="menuBtn" type="button" aria-label="Menú"></button>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero" id="top">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects"><svg class="i i-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> <span lang="es">Casos</span><span lang="en">Cases</span></a>
+    <p class="eyebrow"><span lang="es">Caso de estudio UX/UI &amp; Frontend</span><span lang="en">UX/UI &amp; Frontend case study</span> · CIREN · CONAF · INFOR · 2024</p>
+    <h1><span lang="es">SIMEF Móvil: plataforma de monitoreo de bosque nativo</span><span lang="en">SIMEF Mobile: a native forest monitoring platform</span></h1>
+    <p class="sec-sub" lang="es">De un prototipo de alta fidelidad validado en terreno a una arquitectura de software escalable en <b>React + TypeScript + Vite</b>, integrando geolocalización satelital y autenticación institucional.</p>
+    <p class="sec-sub" lang="en">From a high-fidelity prototype validated in the field to a scalable software architecture in <b>React + TypeScript + Vite</b>, integrating satellite geolocation and government sign-in.</p>
+    <div class="stackpills"><span>React 19 + Vite</span><span>TypeScript</span><span>MapLibre / Mapbox GL</span><span>Offline Sync (PWA)</span><span>Tailwind CSS</span><span>Zustand</span><span>OAuth2 / OIDC</span></div>
+  </div>
+</header>
+
+<!-- Pantallas -->
+<section class="step" id="pantallas"><div class="wrap">
+  <span class="step-num" style="background:#10a36e">1</span>
+  <h2><span lang="es">Las pantallas</span><span lang="en">The screens</span></h2>
+  <p class="sec-sub" lang="es">Acceso oficial con ClaveÚnica o credencial institucional, y la vista de terreno: el mapa con los polígonos de cada rodal, la posición GPS del brigadista y una ficha con superficie, vigor NDVI (Sentinel-2) y elevación, más el protocolo de monitoreo paso a paso.</p>
+  <p class="sec-sub" lang="en">Official sign-in with ClaveÚnica or institutional credentials, and the field view: a map with each stand's polygon, the ranger's GPS position and a card with area, NDVI vigor (Sentinel-2) and elevation, plus the step-by-step monitoring protocol.</p>
+  <div class="shot"><img src="../img/simef-app.jpg" alt="SIMEF Móvil: pantalla de acceso y vista de rodal en el mapa" loading="lazy"></div>
+</div></section>
+
+<!-- Proceso -->
+<section class="step" id="proceso" style="background:var(--surface-2)"><div class="wrap">
+  <span class="step-num" style="background:#10a36e">2</span>
+  <h2><span lang="es">Proceso en dos fases</span><span lang="en">A two-phase process</span></h2>
+  <p class="sec-sub" lang="es">Primero validar con quienes usan la app en terreno; después programar sobre un diseño ya probado.</p>
+  <p class="sec-sub" lang="en">Validate with the people who use the app in the field first; then build on a design that's already proven.</p>
+  <div class="cols-2">
+    <div class="panel phase">
+      <span class="n">01</span>
+      <h4><span lang="es">Fase Test — Prototipo funcional</span><span lang="en">Test phase — Functional prototype</span></h4>
+      <p style="margin-bottom:14px"><small lang="es">Validación de valor, ergonomía y contraste</small><small lang="en">Validating value, ergonomics and contrast</small></p>
+      <ul lang="es">
+        <li><b>Validación con brigadistas y guardaparques:</b> se comprobó el contraste bajo el sol en terreno sin gastar semanas configurando paquetes o servidores.</li>
+        <li><b>Diseño atómico definido:</b> tipografías, tokens de espaciado y paletas institucionales (CIREN, CONAF, ClaveÚnica) quedaron cerrados.</li>
+        <li><b>Cero desperdicio en refactorización:</b> cambiar un botón o el tamaño del mapa en esta etapa toma minutos, no días de refactorizar hooks y estado.</li>
+      </ul>
+      <ul lang="en">
+        <li><b>Validated with rangers and park wardens:</b> sunlight contrast was checked in the field without spending weeks setting up packages or servers.</li>
+        <li><b>Atomic design locked in:</b> typography, spacing tokens and institutional palettes (CIREN, CONAF, ClaveÚnica) were finalized.</li>
+        <li><b>No refactoring waste:</b> changing a button or map size at this stage takes minutes, not days of reworking hooks and state.</li>
+      </ul>
+    </div>
+    <div class="panel phase">
+      <span class="n">02</span>
+      <h4><span lang="es">Fase React — Desarrollo real</span><span lang="en">React phase — Production build</span></h4>
+      <p style="margin-bottom:14px"><small lang="es">Modularidad, persistencia offline y rendimiento</small><small lang="en">Modularity, offline persistence and performance</small></p>
+      <ul lang="es">
+        <li><b>Componentes desacoplados:</b> cada sección del prototipo se convirtió en un componente reutilizable (formulario de acceso, mapa, ficha de rodal, métricas).</li>
+        <li><b>Estado offline (PWA):</b> React Query + IndexedDB para guardar los polígonos satelitales cuando no hay señal en la cordillera.</li>
+        <li><b>Seguridad institucional:</b> manejo de tokens OAuth2 / OIDC para ClaveÚnica y credenciales de funcionarios públicos.</li>
+      </ul>
+      <ul lang="en">
+        <li><b>Decoupled components:</b> each prototype section became a reusable component (sign-in form, map, stand card, metrics).</li>
+        <li><b>Offline state (PWA):</b> React Query + IndexedDB to keep satellite polygons when there's no signal in the mountains.</li>
+        <li><b>Government-grade security:</b> OAuth2 / OIDC token handling for ClaveÚnica and civil-servant credentials.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- Código -->
+<section class="step" id="codigo"><div class="wrap">
+  <span class="step-num" style="background:#10a36e">3</span>
+  <h2><span lang="es">Arquitectura del código</span><span lang="en">Code architecture</span></h2>
+  <p class="sec-sub"><code style="font-family:'JetBrains Mono',monospace;font-size:.85rem">stack: vite + react-ts + tailwindcss + zustand</code></p>
+  <div class="cols-2">
+<div class="tree"><span class="d">simef-forest-app/src/</span>
+├── <span class="d">components/</span>
+│   ├── auth/       <span class="m">ClaveUnicaForm, InstLogin</span>
+│   ├── map/        <span class="m">ForestMap, RodalPolygons, GPSMarker</span>
+│   ├── telemetry/  <span class="m">NdviMetrics, ElevationBadge</span>
+│   └── ui/         <span class="m">Button, Modal, Toast, Drawer</span>
+├── <span class="d">hooks/</span>
+│   ├── useGeolocation.ts   <span class="m">precisión GPS</span>
+│   ├── useOfflineSync.ts   <span class="m">sincronización</span>
+│   └── useForestData.ts    <span class="m">capas CIREN</span>
+├── <span class="d">store/</span>
+│   └── useSurveyStore.ts   <span class="m">Zustand</span>
+├── <span class="d">types/</span>
+│   └── simef.d.ts          <span class="m">GeoJSON, Rodales, Especies</span>
+├── App.tsx
+└── main.tsx</div>
+<pre><span class="c">// src/components/telemetry/RodalCard.tsx</span>
+<span class="k">interface</span> <span class="f">RodalProps</span> {
+  id: <span class="k">string</span>;
+  especie: <span class="k">string</span>;
+  hectareas: <span class="k">number</span>;
+  ndvi: <span class="k">number</span>;
+  onSelectParcel: (id: <span class="k">string</span>) =&gt; <span class="k">void</span>;
+}
+
+<span class="k">export const</span> <span class="f">RodalCard</span>: React.FC&lt;RodalProps&gt; = ({
+  id, especie, hectareas, ndvi, onSelectParcel
+}) =&gt; (
+  &lt;<span class="f">div</span> className=<span class="s">"bg-white rounded-2xl p-4 shadow-xl"</span>&gt;
+    &lt;<span class="f">div</span> className=<span class="s">"flex items-center justify-between"</span>&gt;
+      &lt;<span class="f">span</span> className=<span class="s">"text-xs font-bold text-emerald-800"</span>&gt;{id}&lt;/<span class="f">span</span>&gt;
+      &lt;<span class="f">span</span> className=<span class="s">"text-[10px] bg-emerald-50 px-2 rounded"</span>&gt;
+        NDVI: {ndvi}
+      &lt;/<span class="f">span</span>&gt;
+    &lt;/<span class="f">div</span>&gt;
+    &lt;<span class="f">h4</span> className=<span class="s">"font-bold text-slate-900 mt-1"</span>&gt;{especie}&lt;/<span class="f">h4</span>&gt;
+    &lt;<span class="f">p</span> className=<span class="s">"text-xs text-slate-500"</span>&gt;{hectareas} ha nativas&lt;/<span class="f">p</span>&gt;
+    &lt;<span class="f">button</span>
+      onClick={() =&gt; onSelectParcel(id)}
+      className=<span class="s">"w-full mt-3 py-2 bg-emerald-700 text-white rounded-xl"</span>&gt;
+      Ingresar Ficha Terreno
+    &lt;/<span class="f">button</span>&gt;
+  &lt;/<span class="f">div</span>&gt;
+);</pre>
+  </div>
+</div></section>
+
+<!-- Conclusión -->
+<section class="step" style="border-bottom:0"><div class="wrap">
+  <span class="step-num" style="background:#10a36e">4</span>
+  <h2><span lang="es">Conclusión</span><span lang="en">Takeaway</span></h2>
+  <div class="quote" lang="es">Diseñar primero el entorno de prueba permitió validar la app con guardaparques en zonas remotas de Chile antes de programar, y migrar la interfaz a React manteniendo la coherencia visual del prototipo en la integración geoespacial.</div>
+  <div class="quote" lang="en">Designing the test environment first let us validate the app with park rangers in remote areas of Chile before writing code, then migrate the UI to React while keeping the prototype's visual consistency through the geospatial integration.</div>
+</div></section>
+
+<section class="case-next"><div class="wrap">
+  <p class="eyebrow"><span lang="es">Sigue explorando</span><span lang="en">Keep exploring</span></p>
+  <div class="pn">
+    <a class="prev" href="chilexpress.html"><small><svg class="i i-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> <span lang="es">Caso anterior</span><span lang="en">Previous case</span></small><b><span lang="es">Chilexpress — Rediseño del login</span><span lang="en">Chilexpress — Login redesign</span></b></a>
+    <a class="next" href="energuias.html"><small><span lang="es">Siguiente caso</span><span lang="en">Next case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></small><b><span lang="es">Energuias Chile — Power BI y cotizador EXW</span><span lang="en">Energuias Chile — Power BI & EXW quoter</span></b></a>
+  </div>
+  <div class="all-cases"><a class="btn btn-ghost" href="../index.html#projects"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg> <span lang="es">Ver todos los casos</span><span lang="en">View all cases</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="wrap">
+  <span>© 2026 Johanna Rosales · Santiago, Chile</span>
+  <nav class="foot-links" aria-label="Pie de página">
+    <a href="../index.html#projects"><span lang="es">Casos</span><span lang="en">Work</span></a>
+    <a href="https://github.com/jrosales284" target="_blank" rel="noopener"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+    <a href="#top"><span lang="es">Volver arriba</span><span lang="en">Back to top</span> <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+  </nav>
+</div></footer>
+</body>
+</html>

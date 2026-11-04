@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People Analytics Sodexo — Johanna Rosales</title>
+<meta name="description" content="Caso de estudio: People Analytics de rotación de personal para Sodexo Chile con Power Automate, SQL Server, Direct Lake, DAX y Power BI.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://jrosales284.github.io/casos/sodexo.html">
+<meta name="theme-color" content="#2f6bff">
+<meta name="author" content="Johanna Rosales">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Johanna Rosales — Portafolio">
+<meta property="og:title" content="People Analytics Sodexo — Johanna Rosales">
+<meta property="og:description" content="Caso de estudio: People Analytics de rotación de personal para Sodexo Chile con Power Automate, SQL Server, Direct Lake, DAX y Power BI.">
+<meta property="og:url" content="https://jrosales284.github.io/casos/sodexo.html">
+<meta property="og:image" content="https://jrosales284.github.io/img/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/main.js"></script>
+<style>
+  .shot{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);margin:6px 0 26px;background:var(--surface)}
+  .shot img{width:100%;height:auto;cursor:zoom-in}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .tool{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .tool b{display:flex;align-items:center;gap:8px;font-size:.98rem;margin-bottom:6px}
+  .tool p{color:var(--muted);font-size:.9rem}
+  .ic{width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:8px 0 26px}
+  .flow span{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-weight:600;font-size:.88rem}
+  .flow i{color:var(--muted);font-style:normal}
+  .lightbox{position:fixed;inset:0;background:rgba(5,8,20,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:16px;cursor:zoom-out}
+  .lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;border-radius:10px}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="../index.html">{<b>JR</b>} rosales</a>
+    <ul class="nav-links">
+      <li><a href="#s1"><span lang="es">Integración</span><span lang="en">Integration</span></a></li>
+      <li><a href="#s2">DAX · Direct Lake</a></li>
+      <li><a href="#s3">Dashboard</a></li>
+      <li><a href="../index.html#projects"><span lang="es">Todos los casos</span><span lang="en">All cases</span></a></li>
+    </ul>
+    <div class="nav-tools">
+      <button class="chip-btn" id="langBtn" type="button" aria-label="Cambiar idioma">EN</button>
+      <button class="chip-btn" id="themeBtn" type="button" aria-label="Cambiar tema"></button>
+      <button class="chip-btn menu-btn" id="menuBtn" type="button" aria-label="Menú"></button>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero" id="top">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects"><svg class="i i-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> <span lang="es">Casos</span><span lang="en">Cases</span></a>
+    <p class="eyebrow">People Analytics · Power BI · Power Automate</p>
+    <h1><span lang="es">Sodexo Chile: People Analytics de rotación de personal</span><span lang="en">Sodexo Chile: People Analytics for staff turnover</span></h1>
+    <p class="sec-sub" lang="es">Investigación en DAX, limpieza de la base de datos en Direct Lake y dashboards profesionales en Power BI y Power Automate para entender cuánta gente se va, por qué se va y dónde se concentra la rotación.</p>
+    <p class="sec-sub" lang="en">DAX research, database cleaning in Direct Lake and professional dashboards in Power BI and Power Automate to understand how many people leave, why they leave and where turnover concentrates.</p>
+    <div class="meta">
+      <div><small lang="es">Cliente</small><small lang="en">Client</small><p>Sodexo Chile</p></div>
+      <div><small lang="es">Período</small><small lang="en">Period</small><p lang="es">Sep – Oct 2026</p><p lang="en">Sep – Oct 2026</p></div>
+      <div><small lang="es">Rol</small><small lang="en">Role</small><p lang="es">Analista de datos / BI</p><p lang="en">Data / BI analyst</p></div>
+      <div><small>Stack</small><p>SQL Server · Power Automate · Direct Lake · DAX · Power BI</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- 1 Integración -->
+<section class="step" id="s1"><div class="wrap">
+  <span class="step-num">1</span>
+  <h2><span lang="es">Integración y limpieza de datos</span><span lang="en">Data integration &amp; cleaning</span></h2>
+  <p class="sec-sub" lang="es">Los datos de personal vivían en SQL Server. Con Power Automate armé un flujo de fusión de datos que conecta la base SQL con Microsoft Teams y los usuarios de Office 365, para que la información llegue limpia y actualizada al modelo.</p>
+  <p class="sec-sub" lang="en">Staff data lived in SQL Server. With Power Automate I built a data-merge flow that connects the SQL database with Microsoft Teams and Office 365 users, so information reaches the model clean and up to date.</p>
+  <div class="flow"><span>SQL Server (SSMS)</span><i>→</i><span>Power Automate</span><i>→</i><span>Direct Lake</span><i>→</i><span>DAX</span><i>→</i><span>Power BI</span><i>→</i><span>Teams · Excel · PDF</span></div>
+  <div class="shot"><img src="../img/sodexo-automate.jpg" alt="Flujo de Power Automate conectado a SQL Server, Teams y Office 365" loading="lazy"></div>
+</div></section>
+
+<!-- 2 DAX -->
+<section class="step" id="s2" style="background:var(--surface-2)"><div class="wrap">
+  <span class="step-num">2</span>
+  <h2><span lang="es">Investigación en DAX sobre Direct Lake</span><span lang="en">DAX research on Direct Lake</span></h2>
+  <p class="sec-sub" lang="es">Definí y probé las métricas de rotación directamente sobre el modelo semántico en Direct Lake, validando cada resultado en consultas DAX antes de llevarlo al dashboard.</p>
+  <p class="sec-sub" lang="en">I defined and tested turnover metrics directly on the Direct Lake semantic model, validating each result with DAX queries before bringing it into the dashboard.</p>
+  <div class="cols-2">
+<pre><span class="c">// Sodexo Chile — Rotación de personal (Ene–Sep 2026)</span>
+<span class="k">DEFINE</span>
+  <span class="k">MEASURE</span> <span class="f">'Métricas Rotación'[Tasa de Rotación Acumulada]</span> =
+    <span class="k">DIVIDE</span> ( [Total Desvinculaciones], [Dotación Activa Promedio] )
+  <span class="k">MEASURE</span> <span class="f">'Métricas Rotación'[Rotación Voluntaria %]</span> =
+    <span class="k">DIVIDE</span> ( [Renuncias Efectivas], [Total Desvinculaciones] )
+  <span class="k">MEASURE</span> <span class="f">'Métricas Rotación'[Rotación Involuntaria %]</span> =
+    <span class="k">DIVIDE</span> ( [Términos de Contrato], [Total Desvinculaciones] )
+  <span class="k">MEASURE</span> <span class="f">'Métricas Rotación'[Dotación Activa Promedio]</span> =
+    <span class="k">AVERAGE</span> ( Sodexo_Personal[Dotacion_Activa] )
+
+<span class="k">EVALUATE</span>
+  <span class="k">ROW</span> (
+    <span class="s">"Tasa de Rotación Acumulada"</span>, [Tasa de Rotación Acumulada],
+    <span class="s">"Rotación Voluntaria"</span>, [Rotación Voluntaria %],
+    <span class="s">"Rotación Involuntaria"</span>, [Rotación Involuntaria %],
+    <span class="s">"Dotación Activa Promedio"</span>, [Dotación Activa Promedio]
+  )</pre>
+    <div class="panel">
+      <h4><span lang="es">Fórmula de negocio</span><span lang="en">Business formula</span></h4>
+      <p lang="es"><b>Tasa de rotación</b> = (Salidas ÷ Dotación promedio) × 100, comparada contra el presupuesto y el benchmark de minería y servicios.</p>
+      <p lang="en"><b>Turnover rate</b> = (Exits ÷ Average headcount) × 100, compared against budget and the mining/services benchmark.</p>
+      <h4 style="margin-top:16px"><span lang="es">Por qué Direct Lake</span><span lang="en">Why Direct Lake</span></h4>
+      <p lang="es">Permite consultar los datos en OneLake sin copiarlos ni programar actualizaciones pesadas, así el dashboard trabaja sobre la versión limpia más reciente.</p>
+      <p lang="en">It queries data in OneLake without copying it or scheduling heavy refreshes, so the dashboard always runs on the latest clean version.</p>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:20px;overflow-x:auto">
+    <h4><span lang="es">Resultado de la consulta en Direct Lake</span><span lang="en">Query result in Direct Lake</span></h4>
+    <table class="clean" style="margin-top:8px">
+      <thead><tr><th>[Tasa de Rotación Acumulada]</th><th>[Rotación Voluntaria]</th><th>[Rotación Involuntaria]</th><th>[Dotación Activa Promedio]</th></tr></thead>
+      <tbody><tr><td>27,6%</td><td>64,2%</td><td>35,8%</td><td>3.334</td></tr></tbody>
+    </table>
+    <p class="note" lang="es">Validación cruzada: 920 desvinculaciones ÷ 3.334 de dotación = 27,6% · 591 renuncias + 329 términos = 920.</p>
+    <p class="note" lang="en">Cross-check: 920 exits ÷ 3,334 headcount = 27.6% · 591 resignations + 329 terminations = 920.</p>
+  </div>
+</div></section>
+
+<!-- 3 Dashboard -->
+<section class="step" id="s3"><div class="wrap">
+  <span class="step-num">3</span>
+  <h2><span lang="es">Dashboard People Analytics</span><span lang="en">People Analytics dashboard</span></h2>
+  <p class="sec-sub" lang="es">Menú por tema (resumen, rotación y retención, ausentismo, factores de riesgo y simulador de ahorro), filtros por segmento y región, y exportación a Power BI, Excel y PDF.</p>
+  <p class="sec-sub" lang="en">Menu by topic (overview, turnover &amp; retention, absenteeism, risk factors and savings simulator), segment and region filters, and export to Power BI, Excel and PDF.</p>
+  <div class="shot"><img src="../img/sodexo-dashboard.jpg" alt="Dashboard de rotación de personal" loading="lazy"></div>
+  <div class="cols-3">
+    <div class="panel insight"><b>27,6%</b><p lang="es">Rotación acumulada Ene–Sep, +3,2% vs presupuesto.</p><p lang="en">Cumulative turnover Jan–Sep, +3.2% vs budget.</p></div>
+    <div class="panel insight"><b>64,2%</b><p lang="es">De las salidas son voluntarias: el foco está en retención, no en despidos.</p><p lang="en">Of exits are voluntary: the focus is retention, not dismissals.</p></div>
+    <div class="panel insight"><b>2,5%</b><p lang="es">Meta mensual: la mayoría de los meses la superan, con peak en marzo.</p><p lang="en">Monthly target: most months exceed it, peaking in March.</p></div>
+  </div>
+  <p class="note" lang="es">Datos de demostración generados para ilustrar el modelo. Cumplimiento de privacidad: Ley 19.628.</p>
+  <p class="note" lang="en">Demo data generated to illustrate the model. Privacy compliance: Chile's Law 19.628.</p>
+</div></section>
+
+<!-- Herramientas -->
+<section class="step" style="background:var(--surface-2);border-bottom:0"><div class="wrap">
+  <h2><span lang="es">Cómo usé cada herramienta</span><span lang="en">How I used each tool</span></h2>
+  <div class="tools" style="margin-top:20px">
+    <div class="tool"><b><span class="ic" style="background:#a91d22">SQL</span>SQL Server</b>
+      <p lang="es">Fuente de datos de personal; limpieza y estandarización de registros antes de cargarlos.</p>
+      <p lang="en">Staff data source; cleaning and standardizing records before loading.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#0066ff">PA</span>Power Automate</b>
+      <p lang="es">Flujo de fusión de datos entre SQL Server, Teams y Office 365.</p>
+      <p lang="en">Data-merge flow across SQL Server, Teams and Office 365.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#117865">DL</span>Direct Lake</b>
+      <p lang="es">Modelo semántico sobre OneLake y consultas DAX para validar cada métrica.</p>
+      <p lang="en">Semantic model on OneLake and DAX queries to validate each metric.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#c99a00">fx</span>DAX</b>
+      <p lang="es">Medidas de tasa de rotación, rotación voluntaria e involuntaria, dotación promedio y comparación contra meta.</p>
+      <p lang="en">Measures for turnover rate, voluntary and involuntary turnover, average headcount and target comparison.</p></div>
+    <div class="tool"><b><span class="ic" style="background:#f2c811;color:#111">BI</span>Power BI</b>
+      <p lang="es">Dashboard con navegación por tema, filtros, gráfico real vs meta, motivos de salida y exportación.</p>
+      <p lang="en">Dashboard with topic navigation, filters, actual-vs-target chart, exit reasons and export.</p></div>
+  </div>
+</div></section>
+
+<section class="case-next"><div class="wrap">
+  <p class="eyebrow"><span lang="es">Sigue explorando</span><span lang="en">Keep exploring</span></p>
+  <div class="pn">
+    <a class="prev" href="energuias.html"><small><svg class="i i-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg> <span lang="es">Caso anterior</span><span lang="en">Previous case</span></small><b><span lang="es">Energuias Chile — Power BI y cotizador EXW</span><span lang="en">Energuias Chile — Power BI & EXW quoter</span></b></a>
+    <a class="next" href="bhp.html"><small><span lang="es">Siguiente caso</span><span lang="en">Next case</span> <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></small><b><span lang="es">BHP EMAS — Gestión ambiental</span><span lang="en">BHP EMAS — Environmental management</span></b></a>
+  </div>
+  <div class="all-cases"><a class="btn btn-ghost" href="../index.html#projects"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg> <span lang="es">Ver todos los casos</span><span lang="en">View all cases</span></a></div>
+</div></section>
+<footer class="site-footer"><div class="wrap">
+  <span>© 2026 Johanna Rosales · Santiago, Chile</span>
+  <nav class="foot-links" aria-label="Pie de página">
+    <a href="../index.html#projects"><span lang="es">Casos</span><span lang="en">Work</span></a>
+    <a href="https://github.com/jrosales284" target="_blank" rel="noopener"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+    <a href="#top"><span lang="es">Volver arriba</span><span lang="en">Back to top</span> <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+  </nav>
+</div></footer>
+</body>
+</html>
